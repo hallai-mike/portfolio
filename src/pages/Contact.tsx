@@ -16,7 +16,7 @@ const Contact: React.FC = () => {
           <div className="contact-info">
             <h2>Contact Information</h2>
             <div className="info-cards">
-              <div className="info-card">
+              {/*<div className="info-card">
                 <h3>Address</h3>
                 <p>{personalInfo.address}</p>
               </div>
@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
                   <h3>Phone</h3>
                   <a href={`tel:${personalInfo.phone}`}>{personalInfo.phone}</a>
                 </div>
-              )}
+              )}*/}
             </div>
 
             <div className="social-links">

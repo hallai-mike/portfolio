@@ -18,9 +18,6 @@ export interface Certification {
   id: string;
   name: string;
   issuer: string;
-  date: string;
-  credentialId?: string;
-  url?: string;
 }
 
 export interface PersonalInfo {

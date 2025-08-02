@@ -13,7 +13,7 @@ const Header: React.FC = () => {
     <header className="header">
       <div className="header-container">
         <Link to="/" className="logo">
-          <h1>Portfolio</h1>
+          <h1></h1>
         </Link>
         <nav className="nav">
           <Link 

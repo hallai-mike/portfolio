@@ -31,45 +31,22 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
-          <h1 className="hero-title">{personalInfo.name}</h1>
-          <h2 className="hero-subtitle">{personalInfo.title}</h2>
-          <p className="hero-description">{personalInfo.about}</p>
-          <div className="hero-buttons">
-            <Link to="/projects" className="btn btn-primary">
-              View Projects
-            </Link>
-            <Link to="/contact" className="btn btn-secondary">
-              Get In Touch
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Personal Info Section */}
-      <section className="personal-info">
-        <div className="container">
-          <h2>About Me</h2>
-          <div className="info-grid">
-            <div className="info-item">
-              <h3>Contact Information</h3>
-              <p><strong>Address:</strong> {personalInfo.address}</p>
-              <p><strong>Email:</strong> {personalInfo.email}</p>
-              {personalInfo.phone && (
-                <p><strong>Phone:</strong> {personalInfo.phone}</p>
-              )}
+          <div className="hero-profile">
+            <div className="hero-image">
+              <img src="/headshot.png" alt="Profile" className="profile-pic" />
             </div>
-            <div className="info-item">
-              <h3>Social Links</h3>
-              {personalInfo.linkedin && (
-                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="social-link">
-                  LinkedIn
-                </a>
-              )}
-              {personalInfo.github && (
-                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="social-link">
-                  GitHub
-                </a>
-              )}
+            <div className="hero-text">
+              <h1 className="hero-title">{personalInfo.name}</h1>
+              <h2 className="hero-subtitle">{personalInfo.title}</h2>
+              <p className="hero-description">{personalInfo.about}</p>
+              <div className="hero-buttons">
+                <Link to="/projects" className="btn btn-primary">
+                  View Projects
+                </Link>
+                <Link to="/contact" className="btn btn-secondary">
+                  Get In Touch
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -120,6 +97,36 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Personal Info Section */}
+      <section className="personal-info">
+        <div className="container">
+          <h2>About Me</h2>
+          <div className="info-grid">
+            <div className="info-item">
+              <h3>Contact Information</h3>
+              <p><strong>Address:</strong> {personalInfo.address}</p>
+              <p><strong>Email:</strong> {personalInfo.email}</p>
+              {personalInfo.phone && (
+                <p><strong>Phone:</strong> {personalInfo.phone}</p>
+              )}
+            </div>
+            <div className="info-item">
+              <h3>Social Links</h3>
+              {personalInfo.linkedin && (
+                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="social-link">
+                  LinkedIn
+                </a>
+              )}
+              {personalInfo.github && (
+                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="social-link">
+                  GitHub
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Certifications Section */}
       <section className="certifications">
         <div className="container">
@@ -129,15 +136,6 @@ const Home: React.FC = () => {
               <div key={cert.id} className="certification-card">
                 <h3>{cert.name}</h3>
                 <p className="cert-issuer">{cert.issuer}</p>
-                <p className="cert-date">{formatDate(cert.date)}</p>
-                {cert.credentialId && (
-                  <p className="cert-id">ID: {cert.credentialId}</p>
-                )}
-                {cert.url && (
-                  <a href={cert.url} target="_blank" rel="noopener noreferrer" className="cert-link">
-                    Verify Certificate
-                  </a>
-                )}
               </div>
             ))}
           </div>

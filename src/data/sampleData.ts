@@ -1,14 +1,14 @@
 import { PersonalInfo, Project, Certification } from '../types';
 
 export const personalInfo: PersonalInfo = {
-  name: "John Doe",
+  name: "Mike Hallai",
   title: "Full Stack Developer",
-  address: "123 Developer Street, Tech City, TC 12345",
-  email: "john.doe@email.com",
-  phone: "+1 (555) 123-4567",
-  linkedin: "https://linkedin.com/in/johndoe",
-  github: "https://github.com/johndoe",
-  about: "I'm a passionate full-stack developer with 5+ years of experience building modern web applications. I specialize in React, Node.js, and cloud technologies. I love creating user-friendly applications that solve real-world problems."
+  address: "",
+  email: "",
+  phone: "",
+  linkedin: "www.linkedin.com/in/mhallai",
+  github: "https://github.com/hallai-mike",
+  about: "I'm a passionate full-stack developer with 8+ years of experience building modern web applications. I specialize in React, Node.js, and cloud technologies. I love creating user-friendly applications that solve real-world problems."
 };
 
 export const projects: Project[] = [
@@ -67,26 +67,52 @@ export const projects: Project[] = [
 export const certifications: Certification[] = [
   {
     id: "1",
-    name: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    date: "2023-03-15",
-    credentialId: "AWS-123456",
-    url: "https://aws.amazon.com/certification/"
+    name: "UX Design Certificate",
+    issuer: "Google"
   },
   {
     id: "2",
-    name: "Google Cloud Professional Developer",
-    issuer: "Google Cloud",
-    date: "2022-11-20",
-    credentialId: "GCP-789012",
-    url: "https://cloud.google.com/certification/"
+    name: "Certified Platform Developer I",
+    issuer: "Salesforce"
   },
   {
     id: "3",
-    name: "MongoDB Certified Developer",
-    issuer: "MongoDB University",
-    date: "2022-08-10",
-    credentialId: "MDB-345678",
-    url: "https://university.mongodb.com/"
-  }
+    name: "Certified Platform Developer II",
+    issuer: "Salesforce"
+  },
+  {
+    id: "4",
+    name: "Certified Platform App Builder",
+    issuer: "Salesforce"
+  },
+  {
+    id: "5",
+    name: "Certified Administrator",
+    issuer: "Salesforce"
+  },
+  {
+    id: "6",
+    name: "Certified AI Associate",
+    issuer: "Salesforce"
+  },
+  {
+    id: "7",
+    name: "Certified AI Specialist",
+    issuer: "Salesforce"
+  },
+  {
+    id: "8",
+    name: "Certified Experience Cloud Consultant",
+    issuer: "Salesforce"
+  },
+  {
+    id: "9",
+    name: "Certified Service Cloud Consultant",
+    issuer: "Salesforce"
+  },
+  {
+    id: "10",
+    name: "Certified Data Cloud Consultant",
+    issuer: "Salesforce"
+  },
 ]; 
