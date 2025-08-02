@@ -14,14 +14,14 @@ export const personalInfo: PersonalInfo = {
 export const projects: Project[] = [
   {
     id: "1",
-    title: "E-Commerce Platform",
+    title: "Comic Dreamer",
     status: "completed",
     dateRange: {
-      start: "2023-01-01",
-      end: "2023-06-30"
+      start: "Jun 2025",
+      end: "Aug 2025"
     },
     description: "A full-stack e-commerce platform with payment processing, inventory management, and admin dashboard.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe", "AWS"],
+    technologies: ["iOS", "Swift", "TypeScript", "Firebase"],
     images: [
       "https://via.placeholder.com/800x400/4A90E2/FFFFFF?text=E-Commerce+Platform",
       "https://via.placeholder.com/800x400/50C878/FFFFFF?text=Admin+Dashboard"
@@ -32,13 +32,14 @@ export const projects: Project[] = [
   },
   {
     id: "2",
-    title: "Task Management App",
-    status: "in-progress",
+    title: "Cravey",
+    status: "on-hold",
     dateRange: {
-      start: "2023-08-01"
+      start: "Jan 2024",
+      end: "Feb 2025"
     },
     description: "A collaborative task management application with real-time updates and team collaboration features.",
-    technologies: ["React", "TypeScript", "Firebase", "Material-UI"],
+    technologies: ["Figma", "React.js", "AWS", "Python"],
     images: [
       "https://via.placeholder.com/800x400/FF6B6B/FFFFFF?text=Task+Management+App"
     ],
