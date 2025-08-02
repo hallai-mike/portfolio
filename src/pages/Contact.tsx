@@ -7,33 +7,15 @@ const Contact: React.FC = () => {
     <div className="contact-page">
       <div className="container">
         <div className="contact-header">
-          <h1>Get In Touch</h1>
-          <p>I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+          <h1>Connect with Me</h1>
+          <p>I'm always interested in new opportunities and collaborations.<br/>Feel free to reach out!</p>
         </div>
 
         <div className="contact-content">
           {/* Contact Information */}
           <div className="contact-info">
-            <h2>Contact Information</h2>
-            <div className="info-cards">
-              {/*<div className="info-card">
-                <h3>Address</h3>
-                <p>{personalInfo.address}</p>
-              </div>
-              <div className="info-card">
-                <h3>Email</h3>
-                <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
-              </div>
-              {personalInfo.phone && (
-                <div className="info-card">
-                  <h3>Phone</h3>
-                  <a href={`tel:${personalInfo.phone}`}>{personalInfo.phone}</a>
-                </div>
-              )}*/}
-            </div>
-
+            <h2>Find me on</h2>
             <div className="social-links">
-              <h3>Connect with me</h3>
               <div className="social-buttons">
                 {personalInfo.linkedin && (
                   <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="social-btn linkedin">

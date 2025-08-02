@@ -6,7 +6,7 @@ export const personalInfo: PersonalInfo = {
   address: "",
   email: "",
   phone: "",
-  linkedin: "www.linkedin.com/in/mhallai",
+  linkedin: "https://linkedin.com/in/mhallai",
   github: "https://github.com/hallai-mike",
   about: "I'm a passionate full-stack developer with 8+ years of experience building modern web applications. I specialize in React, Node.js, and cloud technologies. I love creating user-friendly applications that solve real-world problems."
 };

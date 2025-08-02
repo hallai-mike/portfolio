@@ -15,9 +15,6 @@ const Footer: React.FC = () => {
           </div>
           
           <div className="footer-section">
-            <h4>Contact</h4>
-            <p>{personalInfo.email}</p>
-            {personalInfo.phone && <p>{personalInfo.phone}</p>}
           </div>
           
           <div className="footer-section">

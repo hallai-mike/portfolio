@@ -42,7 +42,7 @@ const Projects: React.FC = () => {
       <div className="container">
         <div className="projects-header">
           <h1>My Projects</h1>
-          <p>Here are some of the projects I've worked on. Each project showcases different skills and technologies.</p>
+          <p>Here are some of the recent projects I've worked on. Each project showcases different skills and technologies.</p>
         </div>
 
         {/* Filters */}

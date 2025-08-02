@@ -98,7 +98,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Personal Info Section */}
-      <section className="personal-info">
+      {/*<section className="personal-info">
         <div className="container">
           <h2>About Me</h2>
           <div className="info-grid">
@@ -125,7 +125,7 @@ const Home: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section>*/}
 
       {/* Certifications Section */}
       <section className="certifications">
