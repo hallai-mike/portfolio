@@ -4,7 +4,7 @@ import { personalInfo, projects, certifications } from '../data/sampleData';
 import './Home.css';
 
 const Home: React.FC = () => {
-  const recentProjects = projects.slice(0, 3);
+  const recentProjects = projects.slice(0, 4);
 
   const getStatusColor = (status: string) => {
     switch (status) {
