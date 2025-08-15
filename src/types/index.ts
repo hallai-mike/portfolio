@@ -11,7 +11,14 @@ export interface Project {
   images: string[];
   githubUrl?: string;
   liveUrl?: string;
-  details: string;
+  details: {
+    inspiration: string;
+    idea: string;
+    process: string;
+    design: string;
+    challenges: string;
+    results: string;
+  };
 }
 
 export interface Certification {

@@ -101,9 +101,52 @@ const ProjectDetail: React.FC = () => {
             </div>
           </div>
 
+          {/* Detailed Project Information */}
           <div className="detailed-description">
             <h2>Project Details</h2>
-            <p>{project.details}</p>
+            <div className="details-sections">
+              {project.details.inspiration && (
+                <div className="detail-section">
+                  <h3>Inspiration</h3>
+                  <p>{project.details.inspiration}</p>
+                </div>
+              )}
+              
+              {project.details.idea && (
+                <div className="detail-section">
+                  <h3>The Idea</h3>
+                  <p>{project.details.idea}</p>
+                </div>
+              )}
+              
+              {project.details.process && (
+                <div className="detail-section">
+                  <h3>Development Process</h3>
+                  <p>{project.details.process}</p>
+                </div>
+              )}
+              
+              {project.details.design && (
+                <div className="detail-section">
+                  <h3>Design Approach</h3>
+                  <p>{project.details.design}</p>
+                </div>
+              )}
+              
+              {project.details.challenges && (
+                <div className="detail-section">
+                  <h3>Challenges & Solutions</h3>
+                  <p>{project.details.challenges}</p>
+                </div>
+              )}
+              
+              {project.details.results && (
+                <div className="detail-section">
+                  <h3>Results & Impact</h3>
+                  <p>{project.details.results}</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
