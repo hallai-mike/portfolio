@@ -64,6 +64,31 @@ export const projects: Project[] = [
   },
   {
     id: "3",
+    title: "Total Cost of Ownership Calculator",
+    status: "completed",
+    dateRange: {
+      start: "Jun 2025",
+      end: "Aug 2025"
+    },
+    description: "A mobile app that enables you to quickly create comics from dream descriptions and build a visual dream journal.",
+    technologies: ["iOS", "Swift", "TypeScript", "GenAI", "Firebase"],
+    images: [
+      "https://via.placeholder.com/800x400/4A90E2/FFFFFF?text=E-Commerce+Platform",
+      "https://via.placeholder.com/800x400/50C878/FFFFFF?text=Admin+Dashboard"
+    ],
+    githubUrl: "https://github.com/johndoe/ecommerce-platform",
+    liveUrl: "https://ecommerce-demo.com",
+    details: {
+      inspiration: "I've always been fascinated by dreams and their creative potential. I wanted to create a tool that could transform dream descriptions into visual comics, making it easier for people to capture and share their dream experiences in a creative way.",
+      idea: "Comic Dreamer is a mobile app that uses AI to generate comic panels from dream descriptions, allowing users to build a visual dream journal. Users can describe their dreams in text, and the app generates corresponding comic illustrations.",
+      process: "Started with iOS development using Swift and SwiftUI. Integrated GenAI APIs for text-to-image generation and natural language processing. Built a Firebase backend for user authentication and dream journal storage. Created a TypeScript-based admin dashboard for content moderation.",
+      design: "Designed an intuitive mobile-first interface with a focus on dream journaling. Used a comic book aesthetic with speech bubbles and panel layouts. Implemented smooth animations and transitions to make the dream-to-comic process feel magical.",
+      challenges: "The biggest challenge was fine-tuning the AI image generation to consistently produce comic-style illustrations that matched the dream descriptions. Also had to handle various dream content types and implement appropriate content filtering.",
+      results: "Successfully created a unique dream journaling app that helps users visualize and share their dreams through AI-generated comics. The app has been well-received for its creative approach to dream documentation."
+    }
+  },
+  {
+    id: "4",
     title: "Cravey",
     status: "on-hold",
     dateRange: {
@@ -86,7 +111,7 @@ export const projects: Project[] = [
     }
   },
   {
-    id: "4",
+    id: "5",
     title: "Vinya",
     status: "completed",
     dateRange: {
@@ -110,7 +135,7 @@ export const projects: Project[] = [
     }
   },
   {
-    id: "5",
+    id: "6",
     title: "FiTrac",
     status: "completed",
     dateRange: {

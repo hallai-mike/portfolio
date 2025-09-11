@@ -13,8 +13,6 @@ const Projects: React.FC = () => {
         return '#4CAF50';
       case 'in-progress':
         return '#FF9800';
-      case 'planned':
-        return '#2196F3';
       default:
         return '#757575';
     }
@@ -41,8 +39,8 @@ const Projects: React.FC = () => {
     <div className="projects-page">
       <div className="container">
         <div className="projects-header">
-          <h1>My Projects</h1>
-          <p>Here are some of the recent projects I've worked on. Each project showcases different skills and technologies.</p>
+          <h1>My Recent Projects</h1>
+          {/* <p>Here are some of the recent projects I've worked on. Each project showcases different skills and technologies.</p> */}
         </div>
 
         {/* Filters */}
@@ -62,10 +60,9 @@ const Projects: React.FC = () => {
               onChange={(e) => setStatusFilter(e.target.value)}
               className="status-select"
             >
-              <option value="all">All Status</option>
+              <option value="all">All</option>
               <option value="completed">Completed</option>
               <option value="in-progress">In Progress</option>
-              <option value="planned">Planned</option>
             </select>
           </div>
         </div>

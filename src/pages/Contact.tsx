@@ -7,7 +7,7 @@ const Contact: React.FC = () => {
     <div className="contact-page">
       <div className="container">
         <div className="contact-header">
-          <h1>Connect with Me</h1>
+          <h1>Connect with me</h1>
           <p>I'm always interested in new opportunities and collaborations.<br/>Feel free to reach out!</p>
         </div>
 

@@ -12,8 +12,6 @@ const Home: React.FC = () => {
         return '#4CAF50';
       case 'in-progress':
         return '#FF9800';
-      case 'planned':
-        return '#2196F3';
       default:
         return '#757575';
     }
@@ -55,7 +53,7 @@ const Home: React.FC = () => {
       {/* Recent Projects Section */}
       <section className="recent-projects">
         <div className="container">
-          <h2>Recent Projects</h2>
+          <h2>My Recent Projects</h2>
           <div className="projects-grid">
             {recentProjects.map((project) => (
               <div key={project.id} className="project-card">

@@ -71,7 +71,7 @@ export const projects: Project[] = [
   {
     id: "unique-id",
     title: "Project Title",
-    status: "completed", // or "in-progress", "planned"
+    status: "completed", // or "in-progress"
     dateRange: {
       start: "2023-01-01",
       end: "2023-06-30"

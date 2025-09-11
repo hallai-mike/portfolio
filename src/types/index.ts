@@ -1,7 +1,7 @@
 export interface Project {
   id: string;
   title: string;
-  status: 'completed' | 'in-progress' | 'planned' | 'on-hold';
+  status: 'completed' | 'in-progress' | 'on-hold';
   dateRange: {
     start: string;
     end?: string;

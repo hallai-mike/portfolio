@@ -13,8 +13,6 @@ const ProjectDetail: React.FC = () => {
         return '#4CAF50';
       case 'in-progress':
         return '#FF9800';
-      case 'planned':
-        return '#2196F3';
       default:
         return '#757575';
     }
