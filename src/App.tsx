@@ -7,11 +7,18 @@ import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
+import Aurora from './components/Aurora';
 
 function App() {
   return (
     <Router>
       <div className="App">
+        <Aurora
+          colorStops={["#73C1C6", "#5B618A", "#CE8147"]}
+          blend={1}
+          amplitude={0.8}
+          speed={0.2}
+        />
         <Header />
         <main className="main-content">
           <Routes>

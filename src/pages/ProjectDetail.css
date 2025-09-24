@@ -1,7 +1,7 @@
 .project-detail-page {
   padding: 1rem 0;
   min-height: 100vh;
-  background: #f8f9fa;
+  background: var(--bg-light);
 }
 
 .back-button {
@@ -9,7 +9,7 @@
 }
 
 .back-link {
-  color: #667eea;
+  color: var(--brand-color);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
@@ -19,7 +19,7 @@
 }
 
 .back-link:hover {
-  color: #764ba2;
+  color: var(--brand-color-hover);
 }
 
 /* Project Header */
@@ -40,7 +40,7 @@
 
 .project-title-section h1 {
   font-size: 2rem;
-  color: #333;
+  color: var(--text-dark);
   margin: 0;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .project-date-range {
-  color: #666;
+  color: var(--text-medium);
   font-size: 1rem;
   margin: 0;
 }
@@ -67,7 +67,7 @@
 }
 
 .project-images h2 {
-  color: #333;
+  color: var(--text-dark);
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
@@ -112,14 +112,14 @@
 .description-section h2,
 .technologies-section h2,
 .detailed-description h2 {
-  color: #333;
+  color: var(--text-dark);
   margin-bottom: 0.75rem;
   font-size: 1.3rem;
 }
 
 .description-section p,
 .detailed-description p {
-  color: #666;
+  color: var(--text-medium);
   line-height: 1.5;
   font-size: 1rem;
 }
@@ -133,20 +133,20 @@
 
 .detail-section {
   padding: 1rem;
-  background: #f8f9fa;
+  background: var(--bg-light);
   border-radius: 8px;
-  border-left: 3px solid #667eea;
+  border-left: 3px solid var(--brand-color);
 }
 
 .detail-section h3 {
-  color: #333;
+  color: var(--text-dark);
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
   font-weight: 600;
 }
 
 .detail-section p {
-  color: #666;
+  color: var(--text-medium);
   line-height: 1.5;
   font-size: 0.95rem;
   margin: 0;
@@ -159,11 +159,11 @@
 }
 
 .tech-badge {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--brand-color) 0%, var(--brand-color-hover) 100%);
+  color: var(--primary-white);
   padding: 0.4rem 0.8rem;
   border-radius: 15px;
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   font-weight: 500;
 }
 
@@ -174,7 +174,7 @@
 }
 
 .project-links-section h2 {
-  color: #333;
+  color: var(--text-dark);
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
@@ -188,8 +188,8 @@
 .project-link-btn {
   display: inline-block;
   padding: 0.6rem 1.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--brand-color) 0%, var(--brand-color-hover) 100%);
+  color: var(--primary-white);
   text-decoration: none;
   border-radius: 20px;
   font-weight: 600;
@@ -212,13 +212,13 @@
 }
 
 .not-found h1 {
-  color: #333;
+  color: var(--text-dark);
   margin-bottom: 0.75rem;
   font-size: 1.8rem;
 }
 
 .not-found p {
-  color: #666;
+  color: var(--text-medium);
   margin-bottom: 1.5rem;
   font-size: 1rem;
 }
@@ -237,8 +237,8 @@
 }
 
 .btn-primary {
-  background: #181e3b;
-  color: white;
+  background: var(--primary-black);
+  color: var(--primary-white);
 }
 
 .btn-primary:hover {
