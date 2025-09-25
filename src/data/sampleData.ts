@@ -48,8 +48,16 @@ export const projects: Project[] = [
     description: "A mobile app that enables you to quickly create comics from dream descriptions and build a visual dream journal.",
     technologies: ["iOS", "Swift", "TypeScript", "GenAI", "Firebase"],
     images: [
-      "https://via.placeholder.com/800x400/4A90E2/FFFFFF?text=E-Commerce+Platform",
-      "https://via.placeholder.com/800x400/50C878/FFFFFF?text=Admin+Dashboard"
+      "/project-images/comic-dreamer/1-icon.PNG",
+      "/project-images/comic-dreamer/2-landing.PNG",
+      "/project-images/comic-dreamer/3-form-empty.PNG",
+      "/project-images/comic-dreamer/4-form-filled.PNG",
+      "/project-images/comic-dreamer/5-loading.PNG",
+      "/project-images/comic-dreamer/6-result.PNG",
+      "/project-images/comic-dreamer/7-gallery.PNG",
+      "/project-images/comic-dreamer/8-record-page.PNG",
+      "/project-images/comic-dreamer/9-profile.PNG",
+      "/project-images/comic-dreamer/10-pricing.PNG"
     ],
     githubUrl: "https://github.com/johndoe/ecommerce-platform",
     liveUrl: "https://ecommerce-demo.com",

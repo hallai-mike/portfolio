@@ -73,9 +73,7 @@ const ProjectDetail: React.FC = () => {
             <h2>Project Screenshots</h2>
             <div className="image-gallery">
               {project.images.map((image, index) => (
-                <div key={index} className="image-container">
-                  <img src={image} alt={`${project.title} screenshot ${index + 1}`} />
-                </div>
+                <img key={index} src={image} alt={`${project.title} screenshot ${index + 1}`} />
               ))}
             </div>
           </div>
