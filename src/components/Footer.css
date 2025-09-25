@@ -1,5 +1,5 @@
 .footer {
-  background: linear-gradient(200deg, var(--brand-color) 0%, var(--primary-black) 100%);
+  border-top: 1px solid var(--primary-white);
   color: var(--primary-white);
   padding: 1rem 0;
   margin-top: auto;
@@ -58,7 +58,6 @@
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(206, 129, 71, 0.2);
   padding-top: 1rem;
   text-align: center;
 }

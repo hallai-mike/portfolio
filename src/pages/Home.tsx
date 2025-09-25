@@ -38,10 +38,7 @@ const Home: React.FC = () => {
               <h2 className="hero-subtitle">{personalInfo.title}</h2>
               <p className="hero-description">{personalInfo.about}</p>
               <div className="hero-buttons">
-                <Link to="/projects" className="btn btn-primary">
-                  View Projects
-                </Link>
-                <Link to="/contact" className="btn btn-secondary">
+                <Link to="/contact" className="btn btn-primary">
                   Get In Touch
                 </Link>
               </div>

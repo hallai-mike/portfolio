@@ -84,28 +84,6 @@
   font-size: 1rem;
 }
 
-.btn-primary {
-  background: var(--primary-white);
-  color: var(--brand-color);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--primary-white);
-  border: 2px solid var(--primary-white);
-}
-
-.btn-secondary:hover {
-  background: var(--primary-white);
-  color: var(--brand-color);
-  transform: translateY(-2px);
-}
-
 .btn-outline {
   background: transparent;
   color: var(--brand-color);
@@ -183,7 +161,7 @@
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  color: var(--text-dark);
+  color: var(--primary-white);
 }
 
 .projects-grid {
@@ -280,14 +258,13 @@
 /* Certifications Section */
 .certifications {
   padding: 4rem 0;
-  background: var(--bg-light);
 }
 
 .certifications h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  color: var(--text-dark);
+  color: var(--primary-white);
 }
 
 .certifications-grid {
