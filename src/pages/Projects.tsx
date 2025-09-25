@@ -5,7 +5,6 @@ import './Projects.css';
 
 const Projects: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [statusFilter, setStatusFilter] = useState('all');
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -26,13 +25,9 @@ const Projects: React.FC = () => {
   };
 
   const filteredProjects = projects.filter(project => {
-    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    return project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          project.technologies.some(tech => tech.toLowerCase().includes(searchTerm.toLowerCase()));
-    
-    const matchesStatus = statusFilter === 'all' || project.status === statusFilter;
-    
-    return matchesSearch && matchesStatus;
   });
 
   return (
@@ -40,7 +35,6 @@ const Projects: React.FC = () => {
       <div className="container">
         <div className="projects-header">
           <h1>My Recent Projects</h1>
-          {/* <p>Here are some of the recent projects I've worked on. Each project showcases different skills and technologies.</p> */}
         </div>
 
         {/* Filters */}
@@ -53,17 +47,6 @@ const Projects: React.FC = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               className="search-input"
             />
-          </div>
-          <div className="status-filter">
-            <select
-              value={statusFilter}
-              onChange={(e) => setStatusFilter(e.target.value)}
-              className="status-select"
-            >
-              <option value="all">All</option>
-              <option value="completed">Completed</option>
-              <option value="in-progress">In Progress</option>
-            </select>
           </div>
         </div>
 
@@ -114,7 +97,7 @@ const Projects: React.FC = () => {
         {filteredProjects.length === 0 && (
           <div className="no-projects">
             <h3>No projects found</h3>
-            <p>Try adjusting your search terms or status filter.</p>
+            <p>Try adjusting your search terms.</p>
           </div>
         )}
       </div>

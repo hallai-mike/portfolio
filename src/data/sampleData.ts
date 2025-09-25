@@ -59,8 +59,8 @@ export const projects: Project[] = [
       "/project-images/comic-dreamer/9-profile.PNG",
       "/project-images/comic-dreamer/10-pricing.PNG"
     ],
-    githubUrl: "https://github.com/johndoe/ecommerce-platform",
-    liveUrl: "https://ecommerce-demo.com",
+    githubUrl: "",
+    liveUrl: "",
     details: {
       inspiration: "I've always been fascinated by dreams and their creative potential. I wanted to create a tool that could transform dream descriptions into visual comics, making it easier for people to capture and share their dream experiences in a creative way.",
       idea: "Comic Dreamer is a mobile app that uses AI to generate comic panels from dream descriptions, allowing users to build a visual dream journal. Users can describe their dreams in text, and the app generates corresponding comic illustrations.",
@@ -131,8 +131,8 @@ export const projects: Project[] = [
     images: [
       "https://via.placeholder.com/800x400/87CEEB/FFFFFF?text=Weather+Dashboard"
     ],
-    githubUrl: "https://github.com/johndoe/weather-dashboard",
-    liveUrl: "https://weather-demo.com",
+    githubUrl: "",
+    liveUrl: "",
     details: {
       inspiration: "I wanted to create a comprehensive weather monitoring system that could help users track weather patterns and make informed decisions. The inspiration came from the need for reliable, real-time weather data accessible across multiple devices.",
       idea: "Vinya is a cross-platform weather dashboard that provides real-time weather data and forecasts for multiple locations. The app integrates IoT sensors and serverless architecture to deliver accurate, up-to-date weather information.",

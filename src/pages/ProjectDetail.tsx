@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { projects } from '../data/sampleData';
 import './ProjectDetail.css';
@@ -6,6 +6,9 @@ import './ProjectDetail.css';
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const project = projects.find(p => p.id === id);
+
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -24,6 +27,55 @@ const ProjectDetail: React.FC = () => {
       month: 'long'
     });
   };
+
+  const openModal = useCallback((index: number) => {
+    setSelectedImageIndex(index);
+    setIsModalOpen(true);
+  }, []);
+
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+    setSelectedImageIndex(null);
+  }, []);
+
+  const navigateImage = useCallback((direction: 'prev' | 'next') => {
+    if (!project || selectedImageIndex === null) return;
+
+    const totalImages = project.images.length;
+    let newIndex: number;
+
+    if (direction === 'prev') {
+      newIndex = selectedImageIndex === 0 ? totalImages - 1 : selectedImageIndex - 1;
+    } else {
+      newIndex = selectedImageIndex === totalImages - 1 ? 0 : selectedImageIndex + 1;
+    }
+
+    setSelectedImageIndex(newIndex);
+  }, [project, selectedImageIndex]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (!isModalOpen) return;
+
+      switch (event.key) {
+        case 'Escape':
+          closeModal();
+          break;
+        case 'ArrowLeft':
+          event.preventDefault();
+          navigateImage('prev');
+          break;
+        case 'ArrowRight':
+          event.preventDefault();
+          navigateImage('next');
+          break;
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isModalOpen, closeModal, navigateImage]);
 
   if (!project) {
     return (
@@ -67,28 +119,14 @@ const ProjectDetail: React.FC = () => {
           </p>
         </div>
 
-        {/* Project Images */}
-        {project.images.length > 0 && (
-          <div className="project-images">
-            <h2>Project Screenshots</h2>
-            <div className="image-gallery">
-              {project.images.map((image, index) => (
-                <img key={index} src={image} alt={`${project.title} screenshot ${index + 1}`} />
-              ))}
-            </div>
-          </div>
-        )}
-
         {/* Project Details */}
         <div className="project-details">
           <div className="details-grid">
             <div className="description-section">
-              <h2>Description</h2>
               <p>{project.description}</p>
             </div>
 
             <div className="technologies-section">
-              <h2>Technologies Used</h2>
               <div className="technologies-list">
                 {project.technologies.map((tech) => (
                   <span key={tech} className="tech-badge">{tech}</span>
@@ -96,10 +134,26 @@ const ProjectDetail: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Project Images */}
+        {project.images.length > 0 && (
+          <div className="project-images">
+            <div className="image-gallery">
+              {project.images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`${project.title} screenshot ${index + 1}`}
+                  onClick={() => openModal(index)}
+                />
+              ))}
+            </div>
+          </div>
+        )}
 
           {/* Detailed Project Information */}
           <div className="detailed-description">
-            <h2>Project Details</h2>
             <div className="details-sections">
               {project.details.inspiration && (
                 <div className="detail-section">
@@ -144,25 +198,51 @@ const ProjectDetail: React.FC = () => {
               )}
             </div>
           </div>
-        </div>
 
         {/* Project Links */}
-        <div className="project-links-section">
-          <h2>Project Links</h2>
-          <div className="project-links">
-            {project.githubUrl && (
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="project-link-btn">
-                View on GitHub
-              </a>
-            )}
-            {project.liveUrl && (
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link-btn">
-                Live Demo
-              </a>
-            )}
+        {(project.githubUrl || project.liveUrl) && (
+          <div className="project-links-section">
+            <h2>Project Links</h2>
+            <div className="project-links">
+              {project.githubUrl && (
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="project-link-btn">
+                  View on GitHub
+                </a>
+              )}
+              {project.liveUrl && (
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link-btn">
+                  Live Demo
+                </a>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Image Modal */}
+      {isModalOpen && selectedImageIndex !== null && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal}>
+              ×
+            </button>
+            <button className="modal-nav modal-prev" onClick={() => navigateImage('prev')}>
+              ‹
+            </button>
+            <button className="modal-nav modal-next" onClick={() => navigateImage('next')}>
+              ›
+            </button>
+            <img
+              src={project.images[selectedImageIndex]}
+              alt={`${project.title} screenshot ${selectedImageIndex + 1}`}
+              className="modal-image"
+            />
+            <div className="modal-counter">
+              {selectedImageIndex + 1} / {project.images.length}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
