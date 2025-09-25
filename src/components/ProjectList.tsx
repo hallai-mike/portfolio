@@ -49,34 +49,6 @@ const ProjectList: React.FC<ProjectListProps> = ({
     }
   };
 
-  const renderProjectLinks = (project: Project) => {
-    if (showAdditionalLinks) {
-      return (
-        <div className="project-links">
-          <Link to={`/projects/${project.id}`} className="project-link">
-            View Details
-          </Link>
-          {project.githubUrl && (
-            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="project-link">
-              GitHub
-            </a>
-          )}
-          {project.liveUrl && (
-            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link">
-              Live Demo
-            </a>
-          )}
-        </div>
-      );
-    } else {
-      return (
-        <Link to={`/projects/${project.id}`} className="project-link">
-          View Details
-        </Link>
-      );
-    }
-  };
-
   return (
     <div className={`project-list ${className}`}>
       {showSearch && (
@@ -95,28 +67,29 @@ const ProjectList: React.FC<ProjectListProps> = ({
 
       <div className="projects-grid">
         {filteredProjects.map((project) => (
-          <div key={project.id} className="project-card">
-            <div className="project-image">
-              <img src={project.images[0]} alt={project.title} />
-              <div
-                className="project-status"
-                style={{ backgroundColor: getStatusColor(project.status) }}
-              >
-                {project.status.replace('-', ' ')}
+          <Link key={project.id} to={`/projects/${project.id}`} className="project-card-link">
+            <div className="project-card">
+              <div className="project-image">
+                <img src={project.images[0]} alt={project.title} />
+                <div
+                  className="project-status"
+                  style={{ backgroundColor: getStatusColor(project.status) }}
+                >
+                  {project.status.replace('-', ' ')}
+                </div>
+              </div>
+              <div className="project-content">
+                <h3>{project.title}</h3>
+                <p className="project-date">
+                  {formatDate(project.dateRange.start)} - {project.dateRange.end ? formatDate(project.dateRange.end) : 'Present'}
+                </p>
+                <p className="project-description">{project.description}</p>
+                <div className="project-technologies">
+                  {renderTechnologies(project.technologies)}
+                </div>
               </div>
             </div>
-            <div className="project-content">
-              <h3>{project.title}</h3>
-              <p className="project-date">
-                {formatDate(project.dateRange.start)} - {project.dateRange.end ? formatDate(project.dateRange.end) : 'Present'}
-              </p>
-              <p className="project-description">{project.description}</p>
-              <div className="project-technologies">
-                {renderTechnologies(project.technologies)}
-              </div>
-              {renderProjectLinks(project)}
-            </div>
-          </div>
+          </Link>
         ))}
       </div>
 
