@@ -20,7 +20,7 @@ export const projects: Project[] = [
       start: "Aug 2025",
       end: ""
     },
-    description: "A personal AI workspace where users upload documents and then chat with an assistant that uses vector embeddings to retrieve, cite, and answer from the most relevant passages in real time.",
+    description: "A personal AI workspace where users upload documents and then chat with an assistant that uses vector embeddings to answer questions using the most relevent data from the uploaded documents.",
     technologies: ["React", "TypeScript", "GenAI", "Firebase", "RAG"],
     images: [
       "https://via.placeholder.com/800x400/4A90E2/FFFFFF?text=E-Commerce+Platform",
@@ -72,7 +72,7 @@ export const projects: Project[] = [
   },
   {
     id: "3",
-    title: "Total Cost of Ownership Calculator",
+    title: "Vehicle Total Cost of Ownership Calculator",
     status: "completed",
     dateRange: {
       start: "Jun 2025",
@@ -84,8 +84,8 @@ export const projects: Project[] = [
       "https://via.placeholder.com/800x400/4A90E2/FFFFFF?text=E-Commerce+Platform",
       "https://via.placeholder.com/800x400/50C878/FFFFFF?text=Admin+Dashboard"
     ],
-    githubUrl: "https://github.com/johndoe/ecommerce-platform",
-    liveUrl: "https://ecommerce-demo.com",
+    githubUrl: "",
+    liveUrl: "http://vehicle-cost-calculator.s3-website.us-east-2.amazonaws.com/",
     details: {
       inspiration: "I've always been fascinated by dreams and their creative potential. I wanted to create a tool that could transform dream descriptions into visual comics, making it easier for people to capture and share their dream experiences in a creative way.",
       idea: "Comic Dreamer is a mobile app that uses AI to generate comic panels from dream descriptions, allowing users to build a visual dream journal. Users can describe their dreams in text, and the app generates corresponding comic illustrations.",
@@ -150,13 +150,16 @@ export const projects: Project[] = [
       start: "July 2020",
       end: "Nov 2021"
     },
-    description: "A comprehensive fitness tracking application that helps users monitor their workouts, nutrition, and health metrics.",
-    technologies: ["React", "Node.js", "MongoDB", "Chart.js", "CSS3"],
+    description: "A comprehensive financial tracking application that helps me monitor my spending, investments, and overall financial health.",
+    technologies: ["React", "Node.js", "DynamoDB", "AWS Lambda", "PWA"],
     images: [
-      "https://via.placeholder.com/800x400/87CEEB/FFFFFF?text=Fitness+Tracker"
+      "/project-images/fitrac/1-icon.png",
+      "/project-images/fitrac/2-home-desktop.png",
+      "/project-images/fitrac/3-home-mobile.png",
+      "/project-images/fitrac/4-transaction-form.png"
     ],
-    githubUrl: "https://github.com/johndoe/fitness-tracker",
-    liveUrl: "https://fitrac-demo.com",
+    githubUrl: "",
+    liveUrl: "",
     details: {
       inspiration: "I wanted to create a comprehensive fitness tracking solution that would help users stay motivated and track their progress effectively. The inspiration came from my own fitness journey and the need for a better tracking tool.",
       idea: "FiTrac is a web-based fitness tracking application that allows users to log workouts, track nutrition, monitor health metrics, and visualize their progress over time. The app provides insights and recommendations to help users achieve their fitness goals.",
