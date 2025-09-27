@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { personalInfo } from '../data/sampleData';
 import './Contact.css';
 
 const Contact: React.FC = () => {
+  useEffect(() => {
+    document.title = 'Mike Hallai - Contact';
+  }, []);
+
   return (
     <div className="contact-page">
       <div className="container">

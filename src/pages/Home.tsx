@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { personalInfo, projects, certifications } from '../data/sampleData';
 import ProjectList from '../components/ProjectList';
@@ -6,6 +6,10 @@ import './Home.css';
 
 const Home: React.FC = () => {
   const recentProjects = projects.slice(0, 4);
+
+  useEffect(() => {
+    document.title = 'Mike Hallai';
+  }, []);
 
   return (
     <div className="home">

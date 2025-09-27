@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { projects } from '../data/sampleData';
 import ProjectList from '../components/ProjectList';
 import './Projects.css';
 
 const Projects: React.FC = () => {
+  useEffect(() => {
+    document.title = 'Mike Hallai - Projects';
+  }, []);
 
   return (
     <div className="projects-page">

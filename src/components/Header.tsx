@@ -13,6 +13,7 @@ const Header: React.FC = () => {
     <header className="header">
       <div className="header-container">
         <Link to="/" className="logo">
+          {/* eslint-disable-next-line jsx-a11y/heading-has-content */}
           <h1></h1>
         </Link>
         <nav className="nav">
