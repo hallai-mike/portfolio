@@ -125,7 +125,7 @@ export const projects: Project[] = [
   },
   {
     id: "5",
-    title: "Vinya",
+    title: "VIDA",
     status: "completed",
     dateRange: {
       start: "Jan 2021",
@@ -134,7 +134,13 @@ export const projects: Project[] = [
     description: "A weather dashboard that displays current weather and forecasts for multiple locations.",
     technologies: ["React Native", "AWS", "IoT", "Serverless", "UX Design"],
     images: [
-      "https://via.placeholder.com/800x400/87CEEB/FFFFFF?text=Weather+Dashboard"
+      "/project-images/vida/1-splash.png",
+      "/project-images/vida/2-summary.png",
+      "/project-images/vida/3-sleep-day.png",
+      "/project-images/vida/4-sleep-week.png",
+      "/project-images/vida/5-mobility-day.png",
+      "/project-images/vida/6-nutrition-week.png",
+      "/project-images/vida/7-vitals-day.png"
     ],
     githubUrl: "",
     liveUrl: "",
