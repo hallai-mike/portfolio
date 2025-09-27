@@ -14,7 +14,7 @@ export const personalInfo: PersonalInfo = {
 export const projects: Project[] = [
   {
     id: "1",
-    title: "LucidSeek",
+    title: "LucidQuery",
     status: "in-progress",
     dateRange: {
       start: "Aug 2025",
@@ -23,8 +23,10 @@ export const projects: Project[] = [
     description: "A personal AI workspace where users upload documents and then chat with an assistant that uses vector embeddings to answer questions using the most relevent data from the uploaded documents.",
     technologies: ["React", "TypeScript", "GenAI", "Firebase", "RAG"],
     images: [
-      "https://via.placeholder.com/800x400/4A90E2/FFFFFF?text=E-Commerce+Platform",
-      "https://via.placeholder.com/800x400/50C878/FFFFFF?text=Admin+Dashboard"
+      "/project-images/lucid-query/2-docs.png",
+      "/project-images/lucid-query/3-chat-example.png",
+      "/project-images/lucid-query/4-chat-sources.png",
+      "/project-images/lucid-query/5-second-chat-example.png"
     ],
     githubUrl: "https://github.com/johndoe/ecommerce-platform",
     liveUrl: "https://ecommerce-demo.com",
