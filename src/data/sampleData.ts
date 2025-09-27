@@ -76,23 +76,26 @@ export const projects: Project[] = [
     status: "completed",
     dateRange: {
       start: "Jun 2025",
-      end: "Aug 2025"
+      end: "Jun 2025"
     },
-    description: "A mobile app that enables you to quickly create comics from dream descriptions and build a visual dream journal.",
-    technologies: ["iOS", "Swift", "TypeScript", "GenAI", "Firebase"],
+    description: "A comprehensive web application that calculates the total cost of vehicle ownership including purchase price, financing, insurance, maintenance, fuel, and depreciation.",
+    technologies: ["Web App", "HTML", "CSS", "AWS S3", "Vibe Coding"],
     images: [
-      "https://via.placeholder.com/800x400/4A90E2/FFFFFF?text=E-Commerce+Platform",
-      "https://via.placeholder.com/800x400/50C878/FFFFFF?text=Admin+Dashboard"
+      "/project-images/tco-calculator/1-top.png",
+      "/project-images/tco-calculator/2-chart-1.png",
+      "/project-images/tco-calculator/3-chart-2.png",
+      "/project-images/tco-calculator/4-table.png",
+      "/project-images/tco-calculator/5-services.png"
     ],
     githubUrl: "",
     liveUrl: "http://vehicle-cost-calculator.s3-website.us-east-2.amazonaws.com/",
     details: {
-      inspiration: "I've always been fascinated by dreams and their creative potential. I wanted to create a tool that could transform dream descriptions into visual comics, making it easier for people to capture and share their dream experiences in a creative way.",
-      idea: "Comic Dreamer is a mobile app that uses AI to generate comic panels from dream descriptions, allowing users to build a visual dream journal. Users can describe their dreams in text, and the app generates corresponding comic illustrations.",
-      process: "Started with iOS development using Swift and SwiftUI. Integrated GenAI APIs for text-to-image generation and natural language processing. Built a Firebase backend for user authentication and dream journal storage. Created a TypeScript-based admin dashboard for content moderation.",
-      design: "Designed an intuitive mobile-first interface with a focus on dream journaling. Used a comic book aesthetic with speech bubbles and panel layouts. Implemented smooth animations and transitions to make the dream-to-comic process feel magical.",
-      challenges: "The biggest challenge was fine-tuning the AI image generation to consistently produce comic-style illustrations that matched the dream descriptions. Also had to handle various dream content types and implement appropriate content filtering.",
-      results: "Successfully created a unique dream journaling app that helps users visualize and share their dreams through AI-generated comics. The app has been well-received for its creative approach to dream documentation."
+      inspiration: "When considering vehicle purchases, I found that most cost calculators only focused on basic purchase price and financing, ignoring long-term ownership costs. I wanted to create a comprehensive tool that would help consumers make informed decisions about vehicle ownership.",
+      idea: "A web-based total cost of ownership calculator that takes into account all major expenses associated with vehicle ownership including purchase price, financing, insurance, maintenance, fuel, and depreciation over time.",
+      process: "Built the application using React and TypeScript for a responsive web interface. Implemented complex cost calculation algorithms that account for various factors including inflation, interest rates, and depreciation curves. Deployed the application as a static website on AWS S3 for easy access and maintenance.",
+      design: "Created a clean, intuitive interface that guides users through inputting vehicle details and viewing comprehensive cost breakdowns. Used charts and tables to visualize cost projections over time. Focused on mobile-responsive design to make the calculator accessible on all devices.",
+      challenges: "The biggest challenge was accurately modeling depreciation curves and maintenance costs which vary significantly by vehicle make, model, and usage patterns. Also had to handle various input scenarios and provide meaningful cost comparisons.",
+      results: "Created a comprehensive tool that helps consumers understand the true cost of vehicle ownership beyond just the purchase price. The calculator has helped many users make more informed vehicle purchasing decisions."
     }
   },
   {
