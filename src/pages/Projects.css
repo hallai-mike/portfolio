@@ -1,0 +1,65 @@
+@import '../components/ProjectList.css';
+
+.projects-page {
+  padding: 2rem 0;
+  min-height: 100vh;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.projects-header h1 {
+  font-size: 3rem;
+  color: var(--primary-white);
+  margin-bottom: 1rem;
+}
+
+.projects-header p {
+  font-size: 0.9rem;
+  color: #b8b8b8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Status filter (Projects page specific) */
+.status-filter {
+  min-width: 150px;
+}
+
+.status-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  font-size: 1rem;
+  background: var(--bg-white);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.status-select:focus {
+  outline: none;
+  border-color: var(--brand-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .projects-page {
+    padding-top: 6rem;
+  }
+
+  .projects-header h1 {
+    font-size: 2rem;
+  }
+
+  .status-filter {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .project-content {
+    padding: 1.5rem;
+  }
+} 
