@@ -23,10 +23,10 @@ export const projects: Project[] = [
     description: "An AI-powered file system with chat for unstructured data.",
     technologies: ["React", "TypeScript", "GenAI", "Firebase", "RAG"],
     images: [
-      "/project-images/lucid-query/2-docs.png",
-      "/project-images/lucid-query/3-chat-example.png",
-      "/project-images/lucid-query/4-chat-sources.png",
-      "/project-images/lucid-query/5-second-chat-example.png"
+      `${process.env.PUBLIC_URL}/project-images/lucid-query/2-docs.png`,
+      `${process.env.PUBLIC_URL}/project-images/lucid-query/3-chat-example.png`,
+      `${process.env.PUBLIC_URL}/project-images/lucid-query/4-chat-sources.png`,
+      `${process.env.PUBLIC_URL}/project-images/lucid-query/5-second-chat-example.png`
     ],
     githubUrl: "",
     liveUrl: "",
@@ -51,16 +51,16 @@ export const projects: Project[] = [
     description: "Turn your dreams into comic book stories.",
     technologies: ["iOS", "Swift", "TypeScript", "GenAI", "Firebase"],
     images: [
-      "/project-images/comic-dreamer/1-icon.PNG",
-      "/project-images/comic-dreamer/2-landing.PNG",
-      "/project-images/comic-dreamer/3-form-empty.PNG",
-      "/project-images/comic-dreamer/4-form-filled.PNG",
-      "/project-images/comic-dreamer/5-loading.PNG",
-      "/project-images/comic-dreamer/6-result.PNG",
-      "/project-images/comic-dreamer/7-gallery.PNG",
-      "/project-images/comic-dreamer/8-record-page.PNG",
-      "/project-images/comic-dreamer/9-profile.PNG",
-      "/project-images/comic-dreamer/10-pricing.PNG"
+      `${process.env.PUBLIC_URL}/project-images/comic-dreamer/1-icon.PNG`,
+      `${process.env.PUBLIC_URL}/project-images/comic-dreamer/2-landing.PNG`,
+      `${process.env.PUBLIC_URL}/project-images/comic-dreamer/3-form-empty.PNG`,
+      `${process.env.PUBLIC_URL}/project-images/comic-dreamer/4-form-filled.PNG`,
+      `${process.env.PUBLIC_URL}/project-images/comic-dreamer/5-loading.PNG`,
+      `${process.env.PUBLIC_URL}/project-images/comic-dreamer/6-result.PNG`,
+      `${process.env.PUBLIC_URL}/project-images/comic-dreamer/7-gallery.PNG`,
+      `${process.env.PUBLIC_URL}/project-images/comic-dreamer/8-record-page.PNG`,
+      `${process.env.PUBLIC_URL}/project-images/comic-dreamer/9-profile.PNG`,
+      `${process.env.PUBLIC_URL}/project-images/comic-dreamer/10-pricing.PNG`
     ],
     githubUrl: "",
     liveUrl: "",
@@ -85,11 +85,11 @@ export const projects: Project[] = [
     description: "A faster way to compare the true cost of owning cars.",
     technologies: ["Web App", "HTML", "CSS", "AWS S3", "Vibe Coding"],
     images: [
-      "/project-images/tco-calculator/1-top.png",
-      "/project-images/tco-calculator/2-chart-1.png",
-      "/project-images/tco-calculator/3-chart-2.png",
-      "/project-images/tco-calculator/4-table.png",
-      "/project-images/tco-calculator/5-services.png"
+      `${process.env.PUBLIC_URL}/project-images/tco-calculator/1-top.png`,
+      `${process.env.PUBLIC_URL}/project-images/tco-calculator/2-chart-1.png`,
+      `${process.env.PUBLIC_URL}/project-images/tco-calculator/3-chart-2.png`,
+      `${process.env.PUBLIC_URL}/project-images/tco-calculator/4-table.png`,
+      `${process.env.PUBLIC_URL}/project-images/tco-calculator/5-services.png`
     ],
     githubUrl: "",
     liveUrl: "http://vehicle-cost-calculator.s3-website.us-east-2.amazonaws.com/",
@@ -114,12 +114,12 @@ export const projects: Project[] = [
     description: "Helping groups quickly decide where to eat.",
     technologies: ["Figma", "UX Design", "React", "AWS", "Python"],
     images: [
-      "/project-images/cravey/1-icon.png",
-      "/project-images/cravey/2-landing-desktop.png",
-      "/project-images/cravey/3-splash.png",
-      "/project-images/cravey/4-landing-mobile.png",
-      "/project-images/cravey/5-results.png",
-      "/project-images/cravey/6-filters.png"
+      `${process.env.PUBLIC_URL}/project-images/cravey/1-icon.png`,
+      `${process.env.PUBLIC_URL}/project-images/cravey/2-landing-desktop.png`,
+      `${process.env.PUBLIC_URL}/project-images/cravey/3-splash.png`,
+      `${process.env.PUBLIC_URL}/project-images/cravey/4-landing-mobile.png`,
+      `${process.env.PUBLIC_URL}/project-images/cravey/5-results.png`,
+      `${process.env.PUBLIC_URL}/project-images/cravey/6-filters.png`
     ],
     githubUrl: "",
     details: {
@@ -143,13 +143,13 @@ export const projects: Project[] = [
     description: "Monitoring daily activities to support patient care.",
     technologies: ["React Native", "AWS", "IoT", "Serverless", "UX Design"],
     images: [
-      "/project-images/vida/1-splash.png",
-      "/project-images/vida/2-summary.png",
-      "/project-images/vida/3-sleep-day.png",
-      "/project-images/vida/4-sleep-week.png",
-      "/project-images/vida/5-mobility-day.png",
-      "/project-images/vida/6-nutrition-week.png",
-      "/project-images/vida/7-vitals-day.png"
+      `${process.env.PUBLIC_URL}/project-images/vida/1-splash.png`,
+      `${process.env.PUBLIC_URL}/project-images/vida/2-summary.png`,
+      `${process.env.PUBLIC_URL}/project-images/vida/3-sleep-day.png`,
+      `${process.env.PUBLIC_URL}/project-images/vida/4-sleep-week.png`,
+      `${process.env.PUBLIC_URL}/project-images/vida/5-mobility-day.png`,
+      `${process.env.PUBLIC_URL}/project-images/vida/6-nutrition-week.png`,
+      `${process.env.PUBLIC_URL}/project-images/vida/7-vitals-day.png`
     ],
     githubUrl: "",
     liveUrl: "",
@@ -174,10 +174,10 @@ export const projects: Project[] = [
     description: "A customizable, cost-free personal finance tracker.",
     technologies: ["React", "Node.js", "DynamoDB", "AWS Lambda", "PWA"],
     images: [
-      "/project-images/fitrac/1-icon.png",
-      "/project-images/fitrac/2-home-desktop.png",
-      "/project-images/fitrac/3-home-mobile.png",
-      "/project-images/fitrac/4-transaction-form.png"
+      `${process.env.PUBLIC_URL}/project-images/fitrac/1-icon.png`,
+      `${process.env.PUBLIC_URL}/project-images/fitrac/2-home-desktop.png`,
+      `${process.env.PUBLIC_URL}/project-images/fitrac/3-home-mobile.png`,
+      `${process.env.PUBLIC_URL}/project-images/fitrac/4-transaction-form.png`
     ],
     githubUrl: "",
     liveUrl: "",

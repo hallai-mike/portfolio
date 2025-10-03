@@ -18,7 +18,7 @@ const Home: React.FC = () => {
         <div className="hero-content">
           <div className="hero-profile">
             <div className="hero-image">
-              <img src="/headshot.png" alt="Profile" className="profile-pic" />
+              <img src={`${process.env.PUBLIC_URL}/headshot.png`} alt="Profile" className="profile-pic" />
             </div>
             <div className="hero-text">
               <h1 className="hero-title">{personalInfo.name}</h1>
