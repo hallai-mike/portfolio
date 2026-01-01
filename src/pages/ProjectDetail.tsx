@@ -24,7 +24,16 @@ const ProjectDetail: React.FC = () => {
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
+    // Parse "MMM YYYY" or "MMMM YYYY" format (e.g., "Aug 2025", "July 2020")
+    // Adding day 1 ensures consistent cross-browser parsing
+    const date = new Date(`${dateString} 1`);
+    
+    if (isNaN(date.getTime())) {
+      // If parsing fails, return the original string as fallback
+      return dateString;
+    }
+    
+    return date.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long'
     });
