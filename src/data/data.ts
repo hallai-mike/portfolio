@@ -13,12 +13,43 @@ export const personalInfo: PersonalInfo = {
 
 export const projects: Project[] = [
   {
+    id: "agentic-sf-config",
+    title: "Agentic Salesforce Configuration",
+    status: "completed",
+    dateRange: {
+      start: "Dec 2025",
+      end: "Jan 2026"
+    },
+    description: "An AI agent that transforms natural language requests into governed Salesforce configuration changes.",
+    technologies: ["Salesforce", "Agent", "GenAI", "CI/CD", "Python"],
+    images: [
+      `${process.env.PUBLIC_URL}/project-images/agentic-sf-config/1-diagram.png`,
+      `${process.env.PUBLIC_URL}/project-images/agentic-sf-config/2-form.png`,
+      `${process.env.PUBLIC_URL}/project-images/agentic-sf-config/3-pending.png`,
+      `${process.env.PUBLIC_URL}/project-images/agentic-sf-config/4-approval.png`,
+      `${process.env.PUBLIC_URL}/project-images/agentic-sf-config/5-pr.png`,
+      `${process.env.PUBLIC_URL}/project-images/agentic-sf-config/6-pr2.png`,
+      `${process.env.PUBLIC_URL}/project-images/agentic-sf-config/7-implemented.png`
+    ],
+    githubUrl: "",
+    liveUrl: "",
+    details: {
+      role: "Creator, Developer",
+      painPoint: "Salesforce admins spend a lot of time on simple configuration changes that could instead be easily be delegated to a simple agent powered by modern LLMs.",
+      curiosity: "Learn how agents work by building one from scratch.",
+      idea: "Let users describe configuration changes in plain English, have an AI agent generate the technical implementation and open a PR, then deploy only after human review and CI validation passes.",
+      challenges: "Getting the LLM to consistently output valid Salesforce XML required extensive prompt engineering with repo context and formatting examples, and orchestrating the async flow between Salesforce, Lambda, GitHub, and GitHub Actions demanded careful error handling at each handoff point.",
+      learnings: "Building a truly agentic system means designing for autonomy within guardrails.",
+      impact: "Reduces time required for simple Salesforce configuration changes by 90%, from ~20 minutes to 2 minutes. Maintains full audit trails and enterprise governance through PR reviews and automated validation."
+    }
+  },
+  {
     id: "lucid-query",
     title: "LucidQuery",
-    status: "in-progress",
+    status: "completed",
     dateRange: {
       start: "Aug 2025",
-      end: ""
+      end: "Nov 2025"
     },
     description: "An AI-powered file system with chat for unstructured data.",
     technologies: ["React", "TypeScript", "GenAI", "Firebase", "RAG"],
@@ -248,4 +279,4 @@ export const certifications: Certification[] = [
     name: "Certified Data Cloud Consultant",
     issuer: "Salesforce"
   },
-]; 
+];
