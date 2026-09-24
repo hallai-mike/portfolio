@@ -1,261 +1,181 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { projects } from '../data/data';
-import './ProjectDetail.css';
-
-const ProjectDetail: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const project = projects.find(p => p.id === id);
-
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'completed':
-        return '#4CAF50';
-      case 'in-progress':
-        return '#FF9800';
-      case 'on-hold':
-        return '#2196F3';
-      default:
-        return '#757575';
-    }
-  };
-
-  const formatDate = (dateString: string) => {
-    // Parse "MMM YYYY" or "MMMM YYYY" format (e.g., "Aug 2025", "July 2020")
-    // Adding day 1 ensures consistent cross-browser parsing
-    const date = new Date(`${dateString} 1`);
-    
-    if (isNaN(date.getTime())) {
-      // If parsing fails, return the original string as fallback
-      return dateString;
-    }
-    
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long'
-    });
-  };
-
-  const openModal = useCallback((index: number) => {
-    setSelectedImageIndex(index);
-    setIsModalOpen(true);
-  }, []);
-
-  const closeModal = useCallback(() => {
-    setIsModalOpen(false);
-    setSelectedImageIndex(null);
-  }, []);
-
-  const navigateImage = useCallback((direction: 'prev' | 'next') => {
-    if (!project || selectedImageIndex === null) return;
-
-    const totalImages = project.images.length;
-    let newIndex: number;
-
-    if (direction === 'prev') {
-      newIndex = selectedImageIndex === 0 ? totalImages - 1 : selectedImageIndex - 1;
-    } else {
-      newIndex = selectedImageIndex === totalImages - 1 ? 0 : selectedImageIndex + 1;
-    }
-
-    setSelectedImageIndex(newIndex);
-  }, [project, selectedImageIndex]);
-
-  // Keyboard navigation
+import React, { useEffect, useRef, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { projects } from "../data/data";
+import { stories } from "../data/stories";
+export default function ProjectDetail() {
+  const { id } = useParams();
+  const project = projects.find((p) => p.id === id);
+  const [selected, setSelected] = useState(0);
+  const dialog = useRef<HTMLDialogElement>(null);
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (!isModalOpen) return;
-
-      switch (event.key) {
-        case 'Escape':
-          closeModal();
-          break;
-        case 'ArrowLeft':
-          event.preventDefault();
-          navigateImage('prev');
-          break;
-        case 'ArrowRight':
-          event.preventDefault();
-          navigateImage('next');
-          break;
-      }
+    document.title = `${project?.title || "Project not found"} — Mike Hallai`;
+  }, [project]);
+  useEffect(() => {
+    const node = dialog.current;
+    return () => {
+      node?.close();
+      document.body.style.overflow = "";
     };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [isModalOpen, closeModal, navigateImage]);
-
-  if (!project) {
+  }, [id]);
+  if (!project)
     return (
-      <div className="project-detail-page">
-        <div className="container">
-          <div className="not-found">
-            <h1>Project Not Found</h1>
-            <p>The project you're looking for doesn't exist.</p>
-            <Link to="/projects" className="btn btn-primary">
-              Back to Projects
-            </Link>
-          </div>
-        </div>
-      </div>
+      <section className="page-width detail-page">
+        <h1>Project not found.</h1>
+        <Link to="/projects">Explore all projects ↗</Link>
+      </section>
     );
-  }
-
+  const story = stories[project.id];
+  const next = projects[(projects.indexOf(project) + 1) % projects.length];
+  const close = () => {
+    dialog.current?.close();
+    document.body.style.overflow = "";
+  };
   return (
-    <div className="project-detail-page">
-      <div className="container">
-        {/* Project Header */}
-        <div className="project-header">
-          <div className="project-title-section">
-            <h1>{project.title}</h1>
-            <div 
-              className="project-status-badge"
-              style={{ backgroundColor: getStatusColor(project.status) }}
+    <section className="page-width detail-page">
+      <Link className="text-link" to="/projects">
+        ← All projects
+      </Link>
+      <div className="detail-heading">
+        <span className="eyebrow">
+          {project.appStoreUrl
+            ? "LIVE ON THE APP STORE"
+            : project.status === "on-hold"
+              ? "EXPLORATION / ON HOLD"
+              : "SELECTED WORK"}{" "}
+          / {project.dateRange.start}
+          {project.dateRange.end ? ` — ${project.dateRange.end}` : ""}
+        </span>
+        <h1>{project.title}</h1>
+        <p>{project.description}</p>
+        <div className="detail-links">
+          {project.appStoreUrl && (
+            <a
+              className="solid-link"
+              href={project.appStoreUrl}
+              target="_blank"
+              rel="noreferrer"
             >
-              {project.status.replace('-', ' ')}
-            </div>
-          </div>
-          <p className="project-date-range">
-            {formatDate(project.dateRange.start)} - {project.dateRange.end ? formatDate(project.dateRange.end) : 'Present'}
-          </p>
+              View on the App Store ↗
+            </a>
+          )}
+          {project.marketingUrl && (
+            <a
+              className="solid-link"
+              href={project.marketingUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Visit the marketing site ↗
+            </a>
+          )}
+          {project.liveUrl && (
+            <a
+              className="solid-link"
+              href={project.liveUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Try the app ↗
+            </a>
+          )}
+          {project.githubUrl && (
+            <a className="text-link" href={project.githubUrl}>
+              GitHub ↗
+            </a>
+          )}
         </div>
-
-        {/* Project Details */}
-        <div className="project-details">
-          <div className="details-grid">
-            <div className="description-section">
-              <p>{project.description}</p>
-            </div>
-
-            <div className="technologies-section">
-              <div className="technologies-list">
-                {project.technologies.map((tech) => (
-                  <span key={tech} className="tech-badge">{tech}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Project Images */}
-        {project.images.length > 0 && (
-          <div className="project-images">
-            <div className="image-gallery">
-              {project.images.map((image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt={`${project.title} screenshot ${index + 1}`}
-                  onClick={() => openModal(index)}
-                />
-              ))}
-            </div>
-          </div>
-        )}
-
-          {/* Detailed Project Information */}
-          <div className="detailed-description">
-            <div className="details-sections">
-              {project.details.role && (
-                <div className="detail-section">
-                  <h3>My Role</h3>
-                  <p>{project.details.role}</p>
-                </div>
-              )}
-
-              {project.details.painPoint && (
-                <div className="detail-section">
-                  <h3>Pain Point</h3>
-                  <p>{project.details.painPoint}</p>
-                </div>
-              )}
-              
-              {project.details.idea && (
-                <div className="detail-section">
-                  <h3>The Idea</h3>
-                  <p>{project.details.idea}</p>
-                </div>
-              )}
-              
-              {project.details.curiosity && (
-                <div className="detail-section">
-                  <h3>What Sparked My Curiosity</h3>
-                  <p>{project.details.curiosity}</p>
-                </div>
-              )}
-              
-              {project.details.learnings && (
-                <div className="detail-section">
-                  <h3>Key Learnings</h3>
-                  <p>{project.details.learnings}</p>
-                </div>
-              )}
-              
-              {project.details.challenges && (
-                <div className="detail-section">
-                  <h3>Challenges & Solutions</h3>
-                  <p>{project.details.challenges}</p>
-                </div>
-              )}
-              
-              {project.details.impact && (
-                <div className="detail-section">
-                  <h3>Impact</h3>
-                  <p>{project.details.impact}</p>
-                </div>
-              )}
-            </div>
-          </div>
-
-        {/* Project Links */}
-        {(project.githubUrl || project.liveUrl) && (
-          <div className="project-links-section">
-            <h2>Project Links</h2>
-            <div className="project-links">
-              {project.githubUrl && (
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="project-link-btn">
-                  View on GitHub
-                </a>
-              )}
-              {project.liveUrl && (
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link-btn">
-                  Live Demo
-                </a>
-              )}
-            </div>
-          </div>
-        )}
       </div>
-
-      {/* Image Modal */}
-      {isModalOpen && selectedImageIndex !== null && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModal}>
-              ×
-            </button>
-            <button className="modal-nav modal-prev" onClick={() => navigateImage('prev')}>
-              ‹
-            </button>
-            <button className="modal-nav modal-next" onClick={() => navigateImage('next')}>
-              ›
-            </button>
-            <img
-              src={project.images[selectedImageIndex]}
-              alt={`${project.title} screenshot ${selectedImageIndex + 1}`}
-              className="modal-image"
-            />
-            <div className="modal-counter">
-              {selectedImageIndex + 1} / {project.images.length}
-            </div>
-          </div>
+      <div className="story-grid">
+        <aside>
+          <span className="eyebrow">MY ROLE</span>
+          <p>{project.details.role}</p>
+          <span className="eyebrow">BUILT WITH</span>
+          <p>{project.technologies.join(" · ")}</p>
+        </aside>
+        <div>
+          <h2>The idea</h2>
+          <p>{story.overview}</p>
         </div>
-      )}
-    </div>
+        <div>
+          <h2>Behind the build</h2>
+          <p>{story.story}</p>
+        </div>
+      </div>
+      <div className="section-rule eyebrow">
+        <span>A CLOSER LOOK</span>
+        <span>SELECT AN IMAGE TO EXPLORE</span>
+      </div>
+      <div className="screenshot-gallery">
+        {project.images.map((src, i) => (
+          <button
+            key={src}
+            onClick={() => {
+              setSelected(i);
+              dialog.current?.showModal();
+              document.body.style.overflow = "hidden";
+            }}
+            aria-label={`Enlarge ${project.title} screenshot ${i + 1}`}
+          >
+            <img
+              src={src}
+              alt={`${project.title} screenshot ${i + 1}`}
+              loading="lazy"
+            />
+          </button>
+        ))}
+      </div>
+      <Link className="next-project" to={`/projects/${next.id}`}>
+        <span className="eyebrow">NEXT PROJECT</span>
+        <h2>{next.title} ↗</h2>
+      </Link>
+      <dialog
+        ref={dialog}
+        className="image-dialog"
+        aria-label={`${project.title} screenshots`}
+        onClose={() => {
+          document.body.style.overflow = "";
+        }}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) close();
+        }}
+        onKeyDown={(e) => {
+          if (e.key === "ArrowRight")
+            setSelected((i) => (i + 1) % project.images.length);
+          if (e.key === "ArrowLeft")
+            setSelected(
+              (i) => (i + project.images.length - 1) % project.images.length,
+            );
+        }}
+      >
+        <div className="dialog-controls">
+          <button
+            onClick={() =>
+              setSelected(
+                (i) => (i + project.images.length - 1) % project.images.length,
+              )
+            }
+            aria-label="Previous image"
+          >
+            ←
+          </button>
+          <span>
+            {selected + 1} / {project.images.length}
+          </span>
+          <button
+            onClick={() => setSelected((i) => (i + 1) % project.images.length)}
+            aria-label="Next image"
+          >
+            →
+          </button>
+          <button onClick={close} aria-label="Close image">
+            Close ×
+          </button>
+        </div>
+        <img
+          src={project.images[selected]}
+          alt={`${project.title} screenshot ${selected + 1}`}
+        />
+      </dialog>
+    </section>
   );
-};
-
-export default ProjectDetail; 
+}

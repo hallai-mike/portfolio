@@ -4,10 +4,22 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#f5f3ee" />
+    <script>
+      // Apply the saved theme before the page paints.
+      (function () {
+        var theme;
+        try { theme = localStorage.getItem('portfolio-theme'); } catch (e) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#181b19' : '#f5f3ee';
+      })();
+    </script>
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Mike Hallai builds smart, intuitive apps. Explore independent projects in AI, mobile, and web development."
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--

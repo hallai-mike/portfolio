@@ -1,50 +1,43 @@
-import React, { useEffect } from 'react';
-import { personalInfo } from '../data/data';
-import ContactForm from '../components/ContactForm';
-import './Contact.css';
-
-const Contact: React.FC = () => {
+import React, { useEffect } from "react";
+import ContactForm from "../components/ContactForm";
+import { personalInfo } from "../data/data";
+export default function Contact() {
   useEffect(() => {
-    document.title = 'Mike Hallai - Contact';
+    document.title = "Let’s talk — Mike Hallai";
   }, []);
-
   return (
-    <div className="contact-page">
-      <div className="container">
-        <div className="contact-header">
-          <h1>Connect with me</h1>
-          <p>I'm always interested in new opportunities and collaborations.<br/>Feel free to reach out!</p>
+    <section className="page-width contact-page">
+      <span className="eyebrow">GOOD THINGS START WITH A CONVERSATION</span>
+      <h1>
+        What’s on
+        <br />
+        <em>your mind?</em>
+      </h1>
+      <div className="contact-layout">
+        <div>
+          <p>
+            I’m always interested in new opportunities and collaborations. Tell
+            me what you’re thinking.
+          </p>
+          <a
+            className="text-link"
+            href={personalInfo.linkedin}
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn ↗
+          </a>
+          <a
+            className="text-link"
+            href={personalInfo.github}
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub ↗
+          </a>
         </div>
-
-        <div className="contact-content">
-          {/* Contact Information */}
-          <div className="contact-info">
-            <h2>Find me on</h2>
-            <div className="social-links">
-              <div className="social-buttons">
-                {personalInfo.linkedin && (
-                  <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="social-btn linkedin">
-                    LinkedIn
-                  </a>
-                )}
-                {personalInfo.github && (
-                  <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="social-btn github">
-                    GitHub
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="contact-form-section">
-            <h2>Send a Message</h2>
-            <ContactForm />
-          </div>
-        </div>
+        <ContactForm />
       </div>
-    </div>
+    </section>
   );
-};
-
-export default Contact; 
+}

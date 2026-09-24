@@ -1,73 +1,105 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { personalInfo, projects, certifications } from '../data/data';
-import ProjectList from '../components/ProjectList';
-import './Home.css';
-
-const Home: React.FC = () => {
-  const recentProjects = projects.slice(0, 4);
-
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { personalInfo, projects, certifications } from "../data/data";
+import Exhibit from "../components/Exhibit";
+export default function Home() {
   useEffect(() => {
-    document.title = 'Mike Hallai';
+    document.title = "Mike Hallai — Thoughtful digital products";
   }, []);
-
+  const featured = ["cart-score", "comic-dreamer", "lucid-query"];
   return (
-    <div className="home">
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
-          <div className="hero-profile">
-            <div className="hero-image">
-              <img src={`${process.env.PUBLIC_URL}/headshot.png`} alt="Profile" className="profile-pic" />
-            </div>
-            <div className="hero-text">
-              <h1 className="hero-title">{personalInfo.name}</h1>
-              <h2 className="hero-subtitle">{personalInfo.title}</h2>
-              <p className="hero-description">{personalInfo.about}</p>
-              <div className="hero-buttons">
-                <Link to="/contact" className="btn btn-primary">
-                  Get In Touch
-                </Link>
-              </div>
-            </div>
-          </div>
+    <>
+      <section className="hero page-width">
+        <div className="hero-kicker eyebrow">
+          <span>INDEPENDENT PROJECTS / SELECTED WORK</span>
+          <span>DESIGN + ENGINEERING</span>
+        </div>
+        <h1>
+          I build smart, intuitive
+          <br className="desktop-break" /> apps people <em>love to use.</em>
+        </h1>
+        <div className="hero-bottom">
+          <p>
+            From AI tools to mobile and web projects,
+            <br />I turn ideas into polished products.
+          </p>
+          <a className="text-link" href="#work">
+            Step inside the work <span>↓</span>
+          </a>
         </div>
       </section>
-
-      {/* Recent Projects Section */}
-      <section className="recent-projects">
-        <div className="container">
-          <h2>Recent Projects</h2>
-          <ProjectList
-            projects={recentProjects}
-            showAllTechnologies={false}
-            showAdditionalLinks={false}
-            showSearch={false}
+      <section
+        id="work"
+        className="page-width work-section"
+        aria-label="Selected work"
+      >
+        <div className="section-rule eyebrow">
+          <span>A FEW THINGS I’VE BUILT</span>
+          <span>01 — 03</span>
+        </div>
+        {featured.map((id, i) => (
+          <Exhibit
+            key={id}
+            project={projects.find((p) => p.id === id)!}
+            index={i}
           />
-          <div className="view-all-projects">
-            <Link to="/projects" className="btn btn-outline">
-              View All Projects
-            </Link>
-          </div>
-        </div>
+        ))}
       </section>
-
-      {/* Certifications Section */}
-      <section className="certifications">
-        <div className="container">
-          <h2>Certifications</h2>
-          <div className="certifications-grid">
-            {certifications.map((cert) => (
-              <div key={cert.id} className="certification-card">
-                <h3>{cert.name}</h3>
-                <p className="cert-issuer">{cert.issuer}</p>
+      <section className="page-width archive">
+        <div className="section-rule eyebrow">
+          <span>MORE EXPLORATIONS</span>
+          <Link to="/projects">ALL PROJECTS ↗</Link>
+        </div>
+        {projects
+          .filter((p) => !featured.includes(p.id))
+          .map((p) => (
+            <Link className="archive-row" key={p.id} to={`/projects/${p.id}`}>
+              <span>{p.dateRange.start.slice(-4)}</span>
+              <div>
+                <h3>{p.title}</h3>
+                <p>{p.description}</p>
               </div>
-            ))}
-          </div>
+              <span>↗</span>
+            </Link>
+          ))}
+      </section>
+      <section id="about" className="about page-width">
+        <div>
+          <span className="eyebrow">THE PERSON BEHIND THE PROJECTS</span>
+          <h2>
+            Curiosity in.
+            <br />
+            <em>Good things out.</em>
+          </h2>
+          <img
+            src={`${process.env.PUBLIC_URL}/headshot.png`}
+            alt="Mike Hallai"
+            width="110"
+            height="110"
+          />
+        </div>
+        <div>
+          <p className="about-lead">{personalInfo.about}</p>
+          <p>
+            These are the things I build outside of my full-time work. A
+            collection of questions, experiments, and ideas that became real
+            products.
+          </p>
+          <details>
+            <summary>
+              Credentials & certifications <span>＋</span>
+            </summary>
+            <ul>
+              {certifications.map((c) => (
+                <li key={c.id}>
+                  {c.name}
+                  <span>{c.issuer}</span>
+                </li>
+              ))}
+            </ul>
+          </details>
         </div>
       </section>
-    </div>
+    </>
   );
-};
-
-export default Home; 
+}

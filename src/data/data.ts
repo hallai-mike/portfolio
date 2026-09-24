@@ -1,4 +1,4 @@
-import { PersonalInfo, Project, Certification } from '../types';
+import { PersonalInfo, Project, Certification } from "../types";
 
 export const personalInfo: PersonalInfo = {
   name: "Mike Hallai",
@@ -8,19 +8,45 @@ export const personalInfo: PersonalInfo = {
   phone: "",
   linkedin: "https://linkedin.com/in/mhallai",
   github: "https://github.com/hallai-mike",
-  about: "From AI tools to mobile and web projects, I turn ideas into polished products with thoughtful UX, solid engineering, and an eye for detail. I move fast, solve tough problems, and design experiences that feel effortless."
+  about:
+    "From AI tools to mobile and web projects, I turn ideas into polished products with thoughtful UX, solid engineering, and an eye for detail. I move fast, solve tough problems, and design experiences that feel effortless.",
 };
 
 export const projects: Project[] = [
+  {
+    id: "cart-score",
+    title: "Cart Score",
+    status: "completed",
+    dateRange: { start: "Jul 2026" },
+    description: "One receipt. A clearer picture of your grocery habits.",
+    technologies: ["iOS", "AI", "Health & Fitness"],
+    images: [1, 2, 3].map(
+      (n) => `${process.env.PUBLIC_URL}/project-images/cart-score/${n}.jpg`,
+    ),
+    appStoreUrl:
+      "https://apps.apple.com/us/app/cartscore-receipt-scanner/id6771398455",
+    marketingUrl: "https://www.dataspringsapps.com/cartscore",
+    details: {
+      role: "Creator",
+      painPoint: "",
+      curiosity: "",
+      challenges: "",
+      learnings: "",
+      idea: "Scan a grocery receipt to see an overall cart score, explanations for individual foods, suggested swaps, and spending insights. Track shopping habits over time without logging every meal.",
+      impact:
+        "Shipped on the Apple App Store in July 2026. Receipt details and AI-generated results can be reviewed and corrected in the app.",
+    },
+  },
   {
     id: "agentic-sf-config",
     title: "Agentic Salesforce Configuration",
     status: "completed",
     dateRange: {
       start: "Dec 2025",
-      end: "Jan 2026"
+      end: "Jan 2026",
     },
-    description: "An AI agent that transforms natural language requests into governed Salesforce configuration changes.",
+    description:
+      "An AI agent that transforms natural language requests into governed Salesforce configuration changes.",
     technologies: ["Salesforce", "Agent", "GenAI", "CI/CD", "Python"],
     images: [
       `${process.env.PUBLIC_URL}/project-images/agentic-sf-config/1-diagram.png`,
@@ -29,19 +55,23 @@ export const projects: Project[] = [
       `${process.env.PUBLIC_URL}/project-images/agentic-sf-config/4-approval.png`,
       `${process.env.PUBLIC_URL}/project-images/agentic-sf-config/5-pr.png`,
       `${process.env.PUBLIC_URL}/project-images/agentic-sf-config/6-pr2.png`,
-      `${process.env.PUBLIC_URL}/project-images/agentic-sf-config/7-implemented.png`
+      `${process.env.PUBLIC_URL}/project-images/agentic-sf-config/7-implemented.png`,
     ],
     githubUrl: "",
     liveUrl: "",
     details: {
       role: "Creator, Developer",
-      painPoint: "Salesforce admins spend a lot of time on simple configuration changes that could instead be easily be delegated to a simple agent powered by modern LLMs.",
+      painPoint:
+        "Salesforce admins spend a lot of time on simple configuration changes that could instead be easily be delegated to a simple agent powered by modern LLMs.",
       curiosity: "Learn how agents work by building one from scratch.",
       idea: "Let users describe configuration changes in plain English, have an AI agent generate the technical implementation and open a PR, then deploy only after human review and CI validation passes.",
-      challenges: "Getting the LLM to consistently output valid Salesforce XML required extensive prompt engineering with repo context and formatting examples, and orchestrating the async flow between Salesforce, Lambda, GitHub, and GitHub Actions demanded careful error handling at each handoff point.",
-      learnings: "Building a truly agentic system means designing for autonomy within guardrails.",
-      impact: "Reduces time required for simple Salesforce configuration changes by 90%, from ~20 minutes to 2 minutes. Maintains full audit trails and enterprise governance through PR reviews and automated validation."
-    }
+      challenges:
+        "Getting the LLM to consistently output valid Salesforce XML required extensive prompt engineering with repo context and formatting examples, and orchestrating the async flow between Salesforce, Lambda, GitHub, and GitHub Actions demanded careful error handling at each handoff point.",
+      learnings:
+        "Building a truly agentic system means designing for autonomy within guardrails.",
+      impact:
+        "Reduces time required for simple Salesforce configuration changes by 90%, from ~20 minutes to 2 minutes. Maintains full audit trails and enterprise governance through PR reviews and automated validation.",
+    },
   },
   {
     id: "lucid-query",
@@ -49,7 +79,7 @@ export const projects: Project[] = [
     status: "completed",
     dateRange: {
       start: "Aug 2025",
-      end: "Nov 2025"
+      end: "Nov 2025",
     },
     description: "An AI-powered file system with chat for unstructured data.",
     technologies: ["React", "TypeScript", "GenAI", "Firebase", "RAG"],
@@ -57,27 +87,34 @@ export const projects: Project[] = [
       `${process.env.PUBLIC_URL}/project-images/lucid-query/2-docs.png`,
       `${process.env.PUBLIC_URL}/project-images/lucid-query/3-chat-example.png`,
       `${process.env.PUBLIC_URL}/project-images/lucid-query/4-chat-sources.png`,
-      `${process.env.PUBLIC_URL}/project-images/lucid-query/5-second-chat-example.png`
+      `${process.env.PUBLIC_URL}/project-images/lucid-query/5-second-chat-example.png`,
     ],
     githubUrl: "",
     liveUrl: "",
     details: {
       role: "Contributor, Architect, Full-Stack Developer",
-      painPoint: "Small businesses struggle to securely use AI on their unstructured data.",
+      painPoint:
+        "Small businesses struggle to securely use AI on their unstructured data.",
       curiosity: "",
       idea: "The app combines a familiar file-system interface with an AI-powered chat. Users can upload and organize files into folders, while the system automatically processes them by chunking content, generating embeddings, and storing vectors in a database. The AI chat then takes user queries, embeds them, retrieves the most relevant data, and generates context-aware answers grounded in the uploaded content.",
-      challenges: "Extracting text from diverse file types was tricky. No single library worked well. I solved this by combining multiple libraries, balancing coverage with accuracy.",
-      learnings: "Deepened expertise in Retrieval-Augmented Generation (RAG) and designing agentic systems that can interact with various data sources",
-      impact: "Currently in development, but already helps me answer technical documentation questions more accurately than base LLMs. This demonstrates how it can save time and reduce errors for small businesses."
-    }
+      challenges:
+        "Extracting text from diverse file types was tricky. No single library worked well. I solved this by combining multiple libraries, balancing coverage with accuracy.",
+      learnings:
+        "Deepened expertise in Retrieval-Augmented Generation (RAG) and designing agentic systems that can interact with various data sources",
+      impact:
+        "Currently in development, but already helps me answer technical documentation questions more accurately than base LLMs. This demonstrates how it can save time and reduce errors for small businesses.",
+    },
   },
   {
     id: "comic-dreamer",
+    appStoreUrl:
+      "https://apps.apple.com/us/app/comic-dreamer-ai-art/id6760437741",
+    marketingUrl: "https://www.dataspringsapps.com/comicdreamer",
     title: "Comic Dreamer",
     status: "completed",
     dateRange: {
       start: "Jun 2025",
-      end: "Aug 2025"
+      end: "Aug 2025",
     },
     description: "Turn your dreams into comic book stories.",
     technologies: ["iOS", "Swift", "TypeScript", "GenAI", "Firebase"],
@@ -95,19 +132,22 @@ export const projects: Project[] = [
       `${process.env.PUBLIC_URL}/project-images/comic-dreamer/11-settings-1.PNG`,
       `${process.env.PUBLIC_URL}/project-images/comic-dreamer/12-settings-2.PNG`,
       `${process.env.PUBLIC_URL}/project-images/comic-dreamer/13-plan.PNG`,
-      `${process.env.PUBLIC_URL}/project-images/comic-dreamer/14-appearance.PNG`
+      `${process.env.PUBLIC_URL}/project-images/comic-dreamer/14-appearance.PNG`,
     ],
     githubUrl: "",
     liveUrl: "",
     details: {
       role: "Creator, UX Designer, Full-Stack Developer",
       painPoint: "",
-      curiosity: "This project tested how quickly I could build when leaning fully on AI tools. I intentionally chose unfamiliar technologies (iOS/Swift for the frontend and Firebase for the backend) to see if I could maintain velocity while learning something new.",
+      curiosity:
+        "This project tested how quickly I could build when leaning fully on AI tools. I intentionally chose unfamiliar technologies (iOS/Swift for the frontend and Firebase for the backend) to see if I could maintain velocity while learning something new.",
       idea: "The app lets users jot down what they remember from their dreams and instantly transforms the text into a comic book-style image. Dreams can be saved in a personal “Dream Library” for future reflection.",
-      challenges: "My biggest challenge was building in iOS for the first time. With AI-assisted coding, I discovered that adopting new platforms doesn’t have to slow development.",
+      challenges:
+        "My biggest challenge was building in iOS for the first time. With AI-assisted coding, I discovered that adopting new platforms doesn’t have to slow development.",
       learnings: "iOS, Firebase, Google Cloud, Generative AI APIs",
-      impact: "This project showcases how recent advances in generative AI make entirely new types of creative apps possible."
-    }
+      impact:
+        "This project showcases how recent advances in generative AI make entirely new types of creative apps possible.",
+    },
   },
   {
     id: "vehicle-tco-calculator",
@@ -115,7 +155,7 @@ export const projects: Project[] = [
     status: "completed",
     dateRange: {
       start: "Jun 2025",
-      end: "Jun 2025"
+      end: "Jun 2025",
     },
     description: "A faster way to compare the true cost of owning cars.",
     technologies: ["Web App", "HTML", "CSS", "AWS S3", "Vibe Coding"],
@@ -124,19 +164,22 @@ export const projects: Project[] = [
       `${process.env.PUBLIC_URL}/project-images/tco-calculator/2-chart-1.png`,
       `${process.env.PUBLIC_URL}/project-images/tco-calculator/3-chart-2.png`,
       `${process.env.PUBLIC_URL}/project-images/tco-calculator/4-table.png`,
-      `${process.env.PUBLIC_URL}/project-images/tco-calculator/5-services.png`
+      `${process.env.PUBLIC_URL}/project-images/tco-calculator/5-services.png`,
     ],
     githubUrl: "",
-    liveUrl: "http://vehicle-cost-calculator.s3-website.us-east-2.amazonaws.com/",
+    liveUrl:
+      "http://vehicle-cost-calculator.s3-website.us-east-2.amazonaws.com/",
     details: {
       role: "Creator, Front-End Developer",
       painPoint: "",
-      curiosity: "I wanted to test how quickly I could build a functional app by “vibe coding.”",
+      curiosity:
+        "I wanted to test how quickly I could build a functional app by “vibe coding.”",
       idea: "I built a vehicle total cost of ownership calculator that goes beyond what I could find online. It compares vehicles by factoring in purchase price, financing rates and terms, fuel costs for both EVs and ICE vehicles, registration, and maintenance.",
       challenges: "",
       learnings: "Vibe coding and rapid prototyping",
-      impact: "After only a few hours of work, I had a calculator that outperformed every existing option I could find."
-    }
+      impact:
+        "After only a few hours of work, I had a calculator that outperformed every existing option I could find.",
+    },
   },
   {
     id: "cravey",
@@ -144,7 +187,7 @@ export const projects: Project[] = [
     status: "on-hold",
     dateRange: {
       start: "Jan 2024",
-      end: "Feb 2025"
+      end: "Feb 2025",
     },
     description: "Helping groups quickly decide where to eat.",
     technologies: ["Figma", "UX Design", "React", "AWS", "Python"],
@@ -154,18 +197,22 @@ export const projects: Project[] = [
       `${process.env.PUBLIC_URL}/project-images/cravey/3-splash.png`,
       `${process.env.PUBLIC_URL}/project-images/cravey/4-landing-mobile.png`,
       `${process.env.PUBLIC_URL}/project-images/cravey/5-results.png`,
-      `${process.env.PUBLIC_URL}/project-images/cravey/6-filters.png`
+      `${process.env.PUBLIC_URL}/project-images/cravey/6-filters.png`,
     ],
     githubUrl: "",
     details: {
       role: "Creator, UX Designer, Full-Stack Developer",
-      painPoint: "Choosing a restaurant with friends or coworkers is a common but frustrating problem. I believed a simple app could streamline the process.",
-      curiosity: "I wanted a project to sharpen my UX design skills, so I wireframed and mocked up this application. My plan was to move into development if the design proved compelling.",
+      painPoint:
+        "Choosing a restaurant with friends or coworkers is a common but frustrating problem. I believed a simple app could streamline the process.",
+      curiosity:
+        "I wanted a project to sharpen my UX design skills, so I wireframed and mocked up this application. My plan was to move into development if the design proved compelling.",
       idea: "Users can join a session, either in-person or remotely, to collaboratively decide where to eat by upvoting or vetoing options. To reduce friction, the app automatically suggests restaurants based on the group’s location.",
-      challenges: "The Google Maps Places API proved too costly for a free model. The “Nearby” queries and image fetches would have required charging users a subscription fee.",
+      challenges:
+        "The Google Maps Places API proved too costly for a free model. The “Nearby” queries and image fetches would have required charging users a subscription fee.",
       learnings: "UX design process and evaluating product viability",
-      impact: "After testing the concept, I concluded the value proposition wasn’t strong enough for the subscription I would have to charge to recoup API costs so I decided to pause development."
-    }
+      impact:
+        "After testing the concept, I concluded the value proposition wasn’t strong enough for the subscription I would have to charge to recoup API costs so I decided to pause development.",
+    },
   },
   {
     id: "vida",
@@ -173,7 +220,7 @@ export const projects: Project[] = [
     status: "completed",
     dateRange: {
       start: "Jan 2021",
-      end: "Aug 2021"
+      end: "Aug 2021",
     },
     description: "Monitoring daily activities to support patient care.",
     technologies: ["React Native", "AWS", "IoT", "Serverless", "UX Design"],
@@ -184,7 +231,7 @@ export const projects: Project[] = [
       `${process.env.PUBLIC_URL}/project-images/vida/4-sleep-week.png`,
       `${process.env.PUBLIC_URL}/project-images/vida/5-mobility-day.png`,
       `${process.env.PUBLIC_URL}/project-images/vida/6-nutrition-week.png`,
-      `${process.env.PUBLIC_URL}/project-images/vida/7-vitals-day.png`
+      `${process.env.PUBLIC_URL}/project-images/vida/7-vitals-day.png`,
     ],
     githubUrl: "",
     liveUrl: "",
@@ -193,10 +240,12 @@ export const projects: Project[] = [
       painPoint: "",
       curiosity: "",
       idea: "VIDA was built for a company specializing in in-home sensors that tracked a patient’s “Activities of Daily Living” such as showering or cooking. The mobile app allowed caregivers and family members to monitor this data in real time and receive alerts when unusual patterns suggested a potential concern.",
-      challenges: "Coordinating development across three teams in different time zones created communication and alignment hurdles. Additionally, navigating Apple’s App Store review process introduced unexpected complexity and delays.",
-      learnings: "Gained experience in REST API design and mobile development, while also learning to manage distributed collaboration and release processes",
-      impact: ""
-    }
+      challenges:
+        "Coordinating development across three teams in different time zones created communication and alignment hurdles. Additionally, navigating Apple’s App Store review process introduced unexpected complexity and delays.",
+      learnings:
+        "Gained experience in REST API design and mobile development, while also learning to manage distributed collaboration and release processes",
+      impact: "",
+    },
   },
   {
     id: "fitrac",
@@ -204,7 +253,7 @@ export const projects: Project[] = [
     status: "completed",
     dateRange: {
       start: "July 2020",
-      end: "Nov 2021"
+      end: "Nov 2021",
     },
     description: "A customizable, cost-free personal finance tracker.",
     technologies: ["React", "Node.js", "DynamoDB", "AWS Lambda", "PWA"],
@@ -212,71 +261,75 @@ export const projects: Project[] = [
       `${process.env.PUBLIC_URL}/project-images/fitrac/1-icon.png`,
       `${process.env.PUBLIC_URL}/project-images/fitrac/2-home-desktop.png`,
       `${process.env.PUBLIC_URL}/project-images/fitrac/3-home-mobile.png`,
-      `${process.env.PUBLIC_URL}/project-images/fitrac/4-transaction-form.png`
+      `${process.env.PUBLIC_URL}/project-images/fitrac/4-transaction-form.png`,
     ],
     githubUrl: "",
     liveUrl: "",
     details: {
       role: "Creator, UX Designer, Full-Stack Developer",
-      painPoint: "Most financial tracking tools I tried had two major drawbacks: subscription fees and limited customization.",
+      painPoint:
+        "Most financial tracking tools I tried had two major drawbacks: subscription fees and limited customization.",
       curiosity: "",
       idea: "I wanted a tool that was fully customizable, where I owned all of my data, and where ongoing costs were negligible. So I built my own application.",
-      challenges: "I chose DynamoDB for this project, which introduced a steep learning curve with NoSQL data modeling. In hindsight, a relational database might have been a better fit, but DynamoDB impressed me with its speed and generous free tier.",
-      learnings: "Gained hands-on experience with AWS and NoSQL database design",
-      impact: "FiTrac meets my needs perfectly and is part of my daily routine. I can extend or modify the code whenever I think of new features. The app runs on AWS for less than one dollar per month."
-    }
-  }
+      challenges:
+        "I chose DynamoDB for this project, which introduced a steep learning curve with NoSQL data modeling. In hindsight, a relational database might have been a better fit, but DynamoDB impressed me with its speed and generous free tier.",
+      learnings:
+        "Gained hands-on experience with AWS and NoSQL database design",
+      impact:
+        "FiTrac meets my needs perfectly and is part of my daily routine. I can extend or modify the code whenever I think of new features. The app runs on AWS for less than one dollar per month.",
+    },
+  },
 ];
 
 export const certifications: Certification[] = [
   {
     id: "1",
     name: "UX Design Certificate",
-    issuer: "Google"
+    issuer: "Google",
   },
   {
     id: "2",
     name: "Certified Platform Developer I",
-    issuer: "Salesforce"
+    issuer: "Salesforce",
   },
   {
     id: "3",
     name: "Certified Platform Developer II",
-    issuer: "Salesforce"
+    issuer: "Salesforce",
   },
   {
     id: "4",
     name: "Certified Platform App Builder",
-    issuer: "Salesforce"
+    issuer: "Salesforce",
   },
   {
     id: "5",
     name: "Certified Administrator",
-    issuer: "Salesforce"
+    issuer: "Salesforce",
   },
   {
     id: "6",
     name: "Certified AI Associate",
-    issuer: "Salesforce"
+    issuer: "Salesforce",
   },
   {
     id: "7",
     name: "Certified AI Specialist",
-    issuer: "Salesforce"
+    issuer: "Salesforce",
   },
   {
     id: "8",
     name: "Certified Experience Cloud Consultant",
-    issuer: "Salesforce"
+    issuer: "Salesforce",
   },
   {
     id: "9",
     name: "Certified Service Cloud Consultant",
-    issuer: "Salesforce"
+    issuer: "Salesforce",
   },
   {
     id: "10",
     name: "Certified Data Cloud Consultant",
-    issuer: "Salesforce"
+    issuer: "Salesforce",
   },
 ];

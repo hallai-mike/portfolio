@@ -1,7 +1,7 @@
 export interface Project {
   id: string;
   title: string;
-  status: 'completed' | 'in-progress' | 'on-hold';
+  status: "completed" | "in-progress" | "on-hold";
   dateRange: {
     start: string;
     end?: string;
@@ -9,6 +9,8 @@ export interface Project {
   description: string;
   technologies: string[];
   images: string[];
+  appStoreUrl?: string;
+  marketingUrl?: string;
   githubUrl?: string;
   liveUrl?: string;
   details: {
@@ -37,4 +39,4 @@ export interface PersonalInfo {
   linkedin?: string;
   github?: string;
   about: string;
-} 
+}

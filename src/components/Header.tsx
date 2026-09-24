@@ -1,66 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import './Header.css';
-
-const Header: React.FC = () => {
-  const location = useLocation();
-  const [isSticky, setIsSticky] = useState(false);
-
-  const isActive = (path: string) => {
-    return location.pathname === path;
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Header sticks until scrolled 100px, then scrolls away
-      const scrollThreshold = 240;
-      const currentScroll = window.scrollY;
-
-      if (currentScroll > scrollThreshold) {
-        setIsSticky(false);
-      } else {
-        setIsSticky(true);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial position
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
+import React from "react";
+import { Link } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
+export default function Header() {
   return (
-    <header className={`header ${isSticky ? 'sticky' : ''}`}>
-      <div className="header-container">
-        <Link to="/" className="logo">
-          {/* eslint-disable-next-line jsx-a11y/heading-has-content */}
-          <h1></h1>
+    <>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <header className="site-header page-width">
+        <Link className="wordmark" to="/">
+          Mike Hallai
         </Link>
-        <nav className="nav">
-          <Link 
-            to="/" 
-            className={`nav-link ${isActive('/') ? 'active' : ''}`}
-          >
-            Home
-          </Link>
-          <Link 
-            to="/projects" 
-            className={`nav-link ${isActive('/projects') ? 'active' : ''}`}
-          >
-            Projects
-          </Link>
-          <Link 
-            to="/contact" 
-            className={`nav-link ${isActive('/contact') ? 'active' : ''}`}
-          >
-            Contact
-          </Link>
-        </nav>
-      </div>
-    </header>
+        <div className="header-actions">
+          <nav aria-label="Main navigation">
+            <Link to="/projects">Work</Link>
+            <Link to="/#about">About</Link>
+            <Link to="/contact">
+              Let’s talk <span aria-hidden="true">↗</span>
+            </Link>
+          </nav>
+          <ThemeToggle />
+        </div>
+      </header>
+    </>
   );
-};
-
-export default Header; 
+}
