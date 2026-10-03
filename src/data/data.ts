@@ -2,7 +2,7 @@ import { PersonalInfo, Project, Certification } from "../types";
 
 export const personalInfo: PersonalInfo = {
   name: "Mike Hallai",
-  title: "I build smart, intuitive apps people love to use.",
+  title: "Why isn’t there an app for this?",
   address: "",
   email: "",
   phone: "",
@@ -15,6 +15,7 @@ export const personalInfo: PersonalInfo = {
 export const projects: Project[] = [
   {
     id: "cart-score",
+    stealth: true, // Set to false to reveal this app across the site.
     title: "Cart Score",
     status: "completed",
     dateRange: { start: "Jul 2026" },
@@ -107,6 +108,7 @@ export const projects: Project[] = [
   },
   {
     id: "comic-dreamer",
+    stealth: true, // Set to false to reveal this app across the site.
     appStoreUrl:
       "https://apps.apple.com/us/app/comic-dreamer-ai-art/id6760437741",
     marketingUrl: "https://www.dataspringsapps.com/comicdreamer",

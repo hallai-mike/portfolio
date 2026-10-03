@@ -14,18 +14,15 @@ export default function Home() {
           <span>INDEPENDENT PROJECTS / SELECTED WORK</span>
           <span>DESIGN + ENGINEERING</span>
         </div>
-        <h1>
-          I build smart, intuitive
-          <br className="desktop-break" /> apps people <em>love to use.</em>
-        </h1>
-        <div className="hero-bottom">
-          <p>
-            From AI tools to mobile and web projects,
-            <br />I turn ideas into polished products.
-          </p>
-          <a className="text-link" href="#work">
-            Step inside the work <span>↓</span>
-          </a>
+        <div className="hero-statement">
+          <h1>Why isn’t there <br />an app for this?</h1>
+          <img
+            className="hero-avatar"
+            src={`${process.env.PUBLIC_URL}/hero-headshot-soft-light.png`}
+            alt="Mike Hallai"
+            width="300"
+            height="256"
+          />
         </div>
       </section>
       <section
@@ -35,7 +32,6 @@ export default function Home() {
       >
         <div className="section-rule eyebrow">
           <span>A FEW THINGS I’VE BUILT</span>
-          <span>01 — 03</span>
         </div>
         {featured.map((id, i) => (
           <Exhibit
@@ -51,7 +47,7 @@ export default function Home() {
           <Link to="/projects">ALL PROJECTS ↗</Link>
         </div>
         {projects
-          .filter((p) => !featured.includes(p.id))
+          .filter((p) => !p.stealth && !featured.includes(p.id))
           .map((p) => (
             <Link className="archive-row" key={p.id} to={`/projects/${p.id}`}>
               <span>{p.dateRange.start.slice(-4)}</span>
@@ -74,8 +70,8 @@ export default function Home() {
           <img
             src={`${process.env.PUBLIC_URL}/headshot.png`}
             alt="Mike Hallai"
-            width="110"
-            height="110"
+            width="160"
+            height="160"
           />
         </div>
         <div>

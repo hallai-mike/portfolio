@@ -4,7 +4,7 @@ import { projects } from "../data/data";
 import { stories } from "../data/stories";
 export default function ProjectDetail() {
   const { id } = useParams();
-  const project = projects.find((p) => p.id === id);
+  const project = projects.find((p) => p.id === id && !p.stealth);
   const [selected, setSelected] = useState(0);
   const dialog = useRef<HTMLDialogElement>(null);
   useEffect(() => {
@@ -25,7 +25,8 @@ export default function ProjectDetail() {
       </section>
     );
   const story = stories[project.id];
-  const next = projects[(projects.indexOf(project) + 1) % projects.length];
+  const visibleProjects = projects.filter((p) => !p.stealth);
+  const next = visibleProjects[(visibleProjects.indexOf(project) + 1) % visibleProjects.length];
   const close = () => {
     dialog.current?.close();
     document.body.style.overflow = "";

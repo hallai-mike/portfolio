@@ -60,6 +60,28 @@ export default function Exhibit({
       preference.removeEventListener("change", reset);
     };
   }, []);
+  if (project.stealth) {
+    const number = String(index + 1).padStart(2, "0");
+    return (
+      <article ref={ref} className="exhibit stealth" aria-labelledby={`stealth-${index}`}>
+        <div className="exhibit-copy">
+          <span className="eyebrow">INDEPENDENT iOS APP / {number}</span>
+          <h2 id={`stealth-${index}`}>Under wraps.</h2>
+          <p>Something new is taking shape. The details are staying behind the curtain for now.</p>
+          <span className="exhibit-category">IN STEALTH / REVEAL TO COME</span>
+        </div>
+        <div className="portal-area">
+          <div className={`portal stealth-cover stealth-cover-${index % 2}`} role="img" aria-label="An unrevealed app concealed behind an abstract veil">
+            <div className="stealth-orbit" aria-hidden="true" />
+            <div className="stealth-device" aria-hidden="true"><span>?</span></div>
+            <div className="stealth-veil" aria-hidden="true" />
+            <span className="stealth-stamp" aria-hidden="true">CLASSIFIED / {number}</span>
+            <div className="portal-caption" aria-hidden="true"><span>GOOD THINGS TAKE SHAPE IN SECRET</span><span>○</span></div>
+          </div>
+        </div>
+      </article>
+    );
+  }
   const screenshot = comic
     ? `${process.env.PUBLIC_URL}/project-images/comic-dreamer/${dream ? "9-remix-result" : "6-result-1"}-preview.jpg`
     : cart
@@ -72,10 +94,6 @@ export default function Exhibit({
       aria-labelledby={`title-${project.id}`}
     >
       <div className="exhibit-copy">
-        <span className="eyebrow">
-          {String(index + 1).padStart(2, "0")} /{" "}
-          {project.appStoreUrl ? "LIVE ON THE APP STORE" : "SELECTED WORK"}
-        </span>
         <h2 id={`title-${project.id}`}>{project.title}</h2>
         <p>{project.description}</p>
         <span className="exhibit-category">
@@ -210,9 +228,6 @@ export default function Exhibit({
             </span>
             <span>↓</span>
           </div>
-        </div>
-        <div className="exhibit-footnote">
-          <span>SCROLL TO DISCOVER</span>
         </div>
         {comic && (
           <span className="sr-only" aria-live="polite">

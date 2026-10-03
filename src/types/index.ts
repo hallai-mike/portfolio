@@ -1,6 +1,7 @@
 export interface Project {
   id: string;
   title: string;
+  stealth?: boolean;
   status: "completed" | "in-progress" | "on-hold";
   dateRange: {
     start: string;

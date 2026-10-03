@@ -6,7 +6,7 @@ export default function Projects() {
   useEffect(() => {
     document.title = "Work — Mike Hallai";
   }, []);
-  const filtered = projects.filter((p) =>
+  const filtered = projects.filter((p) => !p.stealth).filter((p) =>
     `${p.title} ${p.description} ${p.technologies.join(" ")}`
       .toLowerCase()
       .includes(query.toLowerCase()),

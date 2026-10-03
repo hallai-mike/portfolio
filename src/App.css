@@ -112,27 +112,21 @@ button {
   margin-bottom: 33px;
 }
 .hero h1 {
-  font-size: clamp(54px, 6.5vw, 110px);
+  font-size: clamp(48px, 5.8vw, 92px);
   line-height: 1.01;
   letter-spacing: -0.064em;
-  max-width: 1350px;
+  max-width: 1100px;
 }
-.hero h1 em {
-  letter-spacing: -0.068em;
-}
-.mobile-break {
-  display: none;
-}
-.hero-bottom {
-  margin-top: 38px;
-  display: flex;
-  justify-content: space-between;
+.hero-statement {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(200px, 23vw, 340px);
   align-items: end;
+  gap: 40px;
 }
-.hero-bottom p {
-  font-size: 17px;
-  color: var(--muted);
-  line-height: 1.6;
+.hero-avatar {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .text-link {
   display: inline-flex;
@@ -164,11 +158,6 @@ button {
   align-self: start;
   position: sticky;
   top: 60px;
-}
-.exhibit-copy .eyebrow {
-  font-size: 9px;
-  letter-spacing: 1.1px;
-  color: var(--muted);
 }
 .exhibit-copy h2 {
   font-size: 43px;
@@ -310,16 +299,6 @@ button {
 }
 .portal-caption span:last-child {
   font-size: 18px;
-}
-.exhibit-footnote {
-  display: flex;
-  justify-content: flex-end;
-  color: var(--muted);
-  margin-top: 20px;
-}
-.exhibit-footnote span {
-  font-size: 8px;
-  letter-spacing: 1.5px;
 }
 .cart .portal {
   background: #d8e6bd;
@@ -481,9 +460,10 @@ button {
   margin: 26px 0;
 }
 .about img {
+  width: 160px;
+  height: 160px;
   object-fit: cover;
   border-radius: 50%;
-  filter: grayscale(1);
 }
 .about-lead {
   font-size: 23px;
@@ -540,6 +520,12 @@ details li span {
   border-top: 1px solid var(--line);
   font-size: 11px;
   color: var(--muted);
+}
+.site-footer.site-footer--compact {
+  padding-top: 0;
+}
+.site-footer--compact .footer-bottom {
+  border-top: 0;
 }
 .footer-bottom div {
   display: flex;
@@ -898,25 +884,16 @@ details li span {
     display: none;
   }
   .hero h1 {
-    font-size: clamp(45px, 10.5vw, 72px);
+    font-size: clamp(38px, 9.8vw, 64px);
     line-height: 1.05;
   }
-  .desktop-break {
-    display: none;
+  .hero-statement {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
-  .hero h1 em {
-    display: block;
-  }
-  .hero-bottom {
-    margin-top: 27px;
-    display: block;
-  }
-  .hero-bottom p {
-    font-size: 14px;
-  }
-  .hero-bottom .text-link {
-    margin-top: 23px;
-    font-size: 12px;
+  .hero-avatar {
+    width: 160px;
+    justify-self: end;
   }
   .section-rule {
     font-size: 8px;
@@ -934,10 +911,6 @@ details li span {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 0 15px;
-  }
-  .exhibit-copy > .eyebrow {
-    grid-column: 1/-1;
-    font-size: 8px;
   }
   .exhibit-copy h2 {
     font-size: 35px;
@@ -1001,9 +974,6 @@ details li span {
     right: 15px;
     bottom: 12px;
     letter-spacing: 1.1px;
-  }
-  .exhibit-footnote {
-    display: none;
   }
   .cart .scene-type {
     font-size: 43px;
@@ -1085,8 +1055,8 @@ details li span {
     font-size: 44px;
   }
   .about img {
-    width: 85px;
-    height: 85px;
+    width: 120px;
+    height: 120px;
   }
   .about-lead {
     font-size: 21px;
@@ -1380,3 +1350,60 @@ details li span {
     will-change: auto !important;
   }
 }
+
+/* Abstract covers deliberately contain no app artwork or branding. */
+.stealth-cover {
+  overflow: hidden;
+  color: #e8e8dd;
+  background: radial-gradient(ellipse at 50% 38%, #46594f, #182922 58%, #101b18);
+}
+.stealth-cover-1 {
+  background: radial-gradient(ellipse at 50% 38%, #555064, #272637 58%, #181923);
+}
+.stealth-orbit {
+  position: absolute;
+  width: 85%;
+  aspect-ratio: 1;
+  border: 1px solid #ffffff20;
+  border-radius: 50%;
+  top: 8%;
+  left: 8%;
+  box-shadow: 0 0 0 45px #ffffff04, 0 0 0 90px #ffffff03;
+}
+.stealth-device {
+  position: absolute;
+  width: 35%;
+  height: 65%;
+  top: 17%;
+  left: 33%;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ffffff40;
+  border-radius: 34px;
+  background: linear-gradient(140deg, #ffffff14, #00000055);
+  box-shadow: 25px 35px 65px #00000050;
+  transform: rotate(-12deg);
+}
+.stealth-device span {
+  font-family: Georgia, serif;
+  font-size: clamp(75px, 12vw, 160px);
+  color: #ffffff35;
+}
+.stealth-cover-1 .stealth-device { transform: rotate(12deg); }
+.stealth-veil {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(13px);
+  background: repeating-linear-gradient(100deg, #ffffff05 0, #ffffff05 1px, transparent 1px, transparent 7px);
+  mask-image: linear-gradient(transparent, #000 25%, #000 75%, transparent);
+}
+.stealth-stamp {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  border: 1px solid #ffffff40;
+  padding: 9px 13px;
+}
+.stealth-cover .portal-caption { color: #e8e8dd; }

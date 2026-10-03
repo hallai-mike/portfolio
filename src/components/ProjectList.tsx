@@ -21,11 +21,12 @@ const ProjectList: React.FC<ProjectListProps> = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredProjects = showSearch ? projects.filter(project => {
+  const publicProjects = projects.filter(project => !project.stealth);
+  const filteredProjects = showSearch ? publicProjects.filter(project => {
     return project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
            project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
            project.technologies.some(tech => tech.toLowerCase().includes(searchTerm.toLowerCase()));
-  }) : projects;
+  }) : publicProjects;
 
   const renderTechnologies = (technologies: string[]) => {
     if (showAllTechnologies) {
